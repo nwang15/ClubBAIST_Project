@@ -14,7 +14,8 @@ namespace BAISTGolf_Project.ViewModels
 
         [Required]
         [DataType(DataType.Password)]
-        public string Passoword { get; set; }
+        public string Password { get; set; }
+
         public bool RememberMe { get; set; }
     }
 }

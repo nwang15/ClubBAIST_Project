@@ -11,24 +11,26 @@ namespace BAISTGolf_Project.Pages
 {
     public class LoginModel : PageModel
     {
+        private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
         [BindProperty]
         public Login Model { get; set; }
 
-        public LoginModel (SignInManager<IdentityUser> signInManager)
+        public LoginModel (UserManager<IdentityUser> userManager,SignInManager<IdentityUser> signInManager)
         {
-
+            this.signInManager = signInManager;
+            this.userManager = userManager;
         }
         public void OnGet()
         {
         }
-        public async Task<IActionResult> onPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             if (ModelState.IsValid)
             {
-               var identityResult =  await signInManager.PasswordSignInAsync(Model.Email, Model.Passoword, Model.RememberMe, false);
-                if (identityResult.Succeeded)
+               var identityRes =  await signInManager.PasswordSignInAsync(Model.Email, Model.Password, Model.RememberMe, false);
+                if (identityRes.Succeeded)
                 {
                     if (returnUrl == null || returnUrl == "/")
                     {

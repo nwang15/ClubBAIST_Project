@@ -19,8 +19,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    @if (SignInManager.IsSignedIn(User))
-                    {
+                    @if (SignInManager.IsSignedIn(User)){
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
@@ -28,7 +27,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                             </li>
-                           
+
                         </ul>
                         <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
                             <li class="nav-item">
@@ -36,9 +35,9 @@
                             </li>
                         </ul>
                     }
-                    else
-                    {
-                        <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
+                        
+                    else {
+ <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
                             <li class="nav-item">
                                 <a asp-page="/Login" class="btn btn-primary">Log In</a>
                             </li>
@@ -47,6 +46,8 @@
                             </li>
                         </ul>
                     }
+                       
+                    
 
 
                 </div>

@@ -31,7 +31,7 @@ namespace BAISTGolf_Project
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
 
             services.ConfigureApplicationCookie(config => {
-                config.LoginPath = "/Logn";
+                config.LoginPath = "/Login";
             });
         }
 
@@ -55,7 +55,7 @@ namespace BAISTGolf_Project
             app.UseRouting();
             app.UseAuthorization();
 
-            app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

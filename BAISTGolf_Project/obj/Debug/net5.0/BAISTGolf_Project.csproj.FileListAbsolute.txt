@@ -155,3 +155,6 @@ D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\BAISTGolf_Project\obj\Debug\n
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\BAISTGolf_Project\obj\Debug\net5.0\BAISTGolf_Project.genruntimeconfig.cache
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\BAISTGolf_Project\obj\Debug\net5.0\Razor\Pages\Login.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\BAISTGolf_Project\obj\Debug\net5.0\Razor\Pages\Logout.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\BAISTGolf_Project\bin\Debug\net5.0\BAISTGolf_Project.StaticWebAssets.xml
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\BAISTGolf_Project\obj\Debug\net5.0\Razor\Pages\Login.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\BAISTGolf_Project\obj\Debug\net5.0\Razor\Pages\Logout.cshtml.g.cs
