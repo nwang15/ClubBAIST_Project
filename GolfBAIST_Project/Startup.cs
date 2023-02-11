@@ -31,7 +31,9 @@ namespace GolfBAIST_Project
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
+
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
         }
@@ -63,6 +65,7 @@ namespace GolfBAIST_Project
             {
                 endpoints.MapRazorPages();
             });
+
         }
     }
 }
