@@ -1,12 +1,15 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace GolfBAIST_Project.Entities
+namespace GolfBAIST_Project.Models.Domain
 {
     public class MembersInfo
     {
-        public int MemberId { get; set; }
-        public int ApplicationID { get; set; }
+
+        public Guid MemberId { get; set; }
+        public Guid ApplicationID { get; set; }
         public string MemberFirstName { get; set; }
         public string MemberLastName { get; set; }
         public string Address { get; set; }

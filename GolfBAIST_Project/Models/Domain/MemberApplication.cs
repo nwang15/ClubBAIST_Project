@@ -1,13 +1,15 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace GolfBAIST_Project.Entities
+namespace GolfBAIST_Project.Models.Domain
 {
     public class MemberApplication
     {
-        public int ApplicationID { get; set; }
+        public Guid ApplicationID { get; set; }
         public string MemberFirstName { get; set; }
         public string MemberLastName { get; set; }
         public string MemberSignature { get; set; }
@@ -19,10 +21,6 @@ namespace GolfBAIST_Project.Entities
         public string SecondShareholderSignature { get; set; }
         public DateTime SecondShareholderSignDate { get; set; }
         public string ApplicationStatus { get; set; }
-
-        [ForeignKey("ApplicationID")]
-        public ICollection<MembersInfo> membersInfos { get; set; }
-
 
 
     }

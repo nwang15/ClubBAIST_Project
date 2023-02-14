@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using GolfBAIST_Project.Models.Domain;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,7 +22,11 @@ namespace GolfBAIST_Project.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
           : base(options)
         {
+
         }
+
+        public DbSet<MemberApplication> MemberApplications { get; set; }
+        public DbSet<MembersInfo> MembersInfos { get; set; }
 
     }
 }

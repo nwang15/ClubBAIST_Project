@@ -1,0 +1,154 @@
+﻿@page
+@model GolfBAIST_Project.Pages.ManageApplication.SubmitApplicationModel
+@{
+}
+
+<h1>Submit Application</h1>
+
+<form class="row g-3">
+    <p>Personal Information</p>
+    <div class="col-md-6">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstName">
+    </div>
+    <div class="col-md-6">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastName">
+    </div>
+    <div class="col-12">
+        <label for="personalAddress" class="form-label">Address</label>
+        <input type="text" class="form-control" id="personalAddress" placeholder="1234 Main St">
+    </div>
+    <div class="col-md-6">
+        <label for="personalCity" class="form-label">City</label>
+        <input type="text" class="form-control" id="personalCity">
+    </div>
+    <div class="col-md-4">
+        <label for="personalProvince" class="form-label">Province</label>
+        <select id="personalProvince" class="form-select">
+            <option selected>Choose...</option>
+            <option>Alberta</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="personalPostalCode" class="form-label">Postal Code</label>
+        <input type="text" class="form-control" id="personalPostalCode">
+    </div>
+    <div class="col-md-4">
+        <label for="dob" class="form-label">Date Of Birth</label>
+        <input type="date" class="form-control" id="dob">
+    </div>
+    <div class="col-md-4">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phoneNumber">
+    </div>
+    <div class="col-md-4">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email">
+    </div>
+    <p></p>
+    <p>Company Information</p>
+    <div class="col-md-6">
+        <label for="companyName" class="form-label">Occupation</label>
+        <input type="text" class="form-control" id="occupation">
+    </div>
+    <div class="col-md-6">
+        <label for="occupation" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastName">
+    </div>
+    <div class="col-12">
+        <label for="companyAddress" class="form-label">Address</label>
+        <input type="text" class="form-control" id="companyAddress" placeholder="1234 Main St">
+    </div>
+    <div class="col-md-6">
+        <label for="companyCity" class="form-label">City</label>
+        <input type="text" class="form-control" id="companyCity">
+    </div>
+    <div class="col-md-4">
+        <label for="companyProvince" class="form-label">Province</label>
+        <select id="companyProvince" class="form-select">
+            <option selected>Choose...</option>
+            <option>Alberta</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="companyPostalCode" class="form-label">Postal Code</label>
+        <input type="text" class="form-control" id="companyPostalCode">
+    </div>
+
+    <div class="col-md-4">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phoneNumber">
+    </div>
+    <p></p>
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="personalInfoCheck">
+            <label class="form-check-label" for="personalInfoCheck">
+                I hereby apply to become a Shareholder/Associate of Club of BAIST. If Seleted I agree to pay the annual dues and
+                I also agree to become bound by the Memorandum and Articles of Association of Club BAIST, and the rules,
+                regulations and By-laws of the Directors of Club BAIST, and all amendments thereto.
+            </label>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="memberSignature" class="form-label">Signature</label>
+        <input type="text" class="form-control" id="memberSignature">
+    </div>
+
+    <div class="col-md-4">
+        <label for="memberSignatureDate" class="form-label">Date</label>
+        <input type="date" class="form-control" id="memberSignatureDate">
+    </div>
+
+
+    <p></p>
+    <p>Reference Information</p>
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="refCheck">
+            <label class="form-check-label" for="refCheck">
+                The above named applicant is personally known to me, and I believe him/her to be a suitable persion to be slected
+                as a member of Club BAIST.
+            </label>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="firstShareHolderName" class="form-label">First Share Holder Name</label>
+        <input type="text" class="form-control" id="firstShareHolderName">
+    </div>
+    <div class="col-md-6">
+        <label for="secondShareHolderName" class="form-label">Second Share Holder Name</label>
+        <input type="text" class="form-control" id="secondShareHolderName">
+    </div>
+
+    <div class="col-md-6">
+        <label for="firstShareHolderDate" class="form-label">Date</label>
+        <input type="date" class="form-control" id="firstShareHolderDate">
+    </div>
+    <div class="col-md-6">
+        <label for="secondShareHolderDate" class="form-label">Date</label>
+        <input type="date" class="form-control" id="secondShareHolderDate">
+    </div>
+    <p></p>
+    <p>PRIVACY INFORMATION</p>
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="priCheck">
+            <label class="form-check-label" for="priCheck">
+                The information you provide on this document is requested strictly to update our membership data and the
+                Membership Roster. This information will not be used for any other purpose except with your written permission
+            </label>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit Application</button>
+        <button type="reset" class="btn btn-secondary">Clear Application</button>
+    </div>
+
+
+</form>
