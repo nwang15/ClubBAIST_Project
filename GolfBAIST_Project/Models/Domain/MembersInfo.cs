@@ -9,7 +9,7 @@ namespace GolfBAIST_Project.Models.Domain
     {
 
         public Guid MemberId { get; set; }
-        public Guid ApplicationID { get; set; }
+        public int ApplicationID { get; set; }
         public string MemberFirstName { get; set; }
         public string MemberLastName { get; set; }
         public string Address { get; set; }

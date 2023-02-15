@@ -320,3 +320,5 @@ D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\n
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\GolfBAIST_Project.pdb
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\GolfBAIST_Project.genruntimeconfig.cache
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\ManageReservation\BookReservation.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\ManageApplication\SubmitApplication.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\ManageReservation\BookReservation.cshtml.g.cs
