@@ -12,8 +12,8 @@ namespace GolfBAIST_Project.Models.Domain
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
-        public int Players { get; set; }
-
         public string Holes { get; set; }
+
+        public int Players { get; set; }
     }
 }

@@ -12,5 +12,9 @@ namespace GolfBAIST_Project.Pages.ManageApplication
         public void OnGet()
         {
         }
+        public void OnPost ()
+        {
+
+        }
     }
 }
