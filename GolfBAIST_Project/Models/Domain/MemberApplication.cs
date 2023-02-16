@@ -14,13 +14,13 @@ namespace GolfBAIST_Project.Models.Domain
         public string MembershipType { get; set; }
         public string MemberFirstName { get; set; }
         public string MemberLastName { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string Province { get; set; }
-        public string PostalCode { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
-        public DateTime DOB { get; set; }
+        public string MemberAddress { get; set; }
+        public string MemberCity { get; set; }
+        public string MemberProvince { get; set; }
+        public string MemberPostalCode { get; set; }
+        public string MemberPhoneNumber { get; set; }
+        public string MemberEmail { get; set; }
+        public DateTime MemberDOB { get; set; }
         public string Occupation { get; set; }
         public string CompanyName { get; set; }
         public string CompanyAddress { get; set; }
