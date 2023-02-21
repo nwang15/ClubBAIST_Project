@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using GolfBAIST_Project.Data;
 using GolfBAIST_Project.Models.Domain;
 using GolfBAIST_Project.Models.ViewModels;
+using GolfBAIST_Project.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -12,13 +13,15 @@ namespace GolfBAIST_Project.Pages.ManageApplication
 {
     public class SubmitApplicationModel : PageModel
     {
-        private readonly ApplicationDbContext _applicationDbContext;
+       
+        private readonly IMemberApplicationRepository memberApplicationRepository;
+
         [BindProperty]
         public AddApplication AddApplicationRequest { get; set; }
 
-        public SubmitApplicationModel(ApplicationDbContext applicationDbContext)
+        public SubmitApplicationModel(IMemberApplicationRepository memberApplicationRepository)
         {
-            _applicationDbContext = applicationDbContext;
+            this.memberApplicationRepository = memberApplicationRepository;
         }
 
         public void OnGet()
@@ -54,8 +57,7 @@ namespace GolfBAIST_Project.Pages.ManageApplication
                 SecondShareholderSignDate = AddApplicationRequest.SecondShareholderSignDate,
             };
 
-            await _applicationDbContext.MemberApplications.AddAsync(addApplication);
-            await _applicationDbContext.SaveChangesAsync();
+           await memberApplicationRepository.AddAsync(addApplication);
 
             return RedirectToPage("/ManagerApplication/ReviewApplication");
         }
