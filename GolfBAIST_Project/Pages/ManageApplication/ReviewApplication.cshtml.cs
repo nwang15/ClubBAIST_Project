@@ -2,8 +2,10 @@ using GolfBAIST_Project.Data;
 using GolfBAIST_Project.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace GolfBAIST_Project.Pages.ManageApplication
 {
@@ -16,9 +18,9 @@ namespace GolfBAIST_Project.Pages.ManageApplication
         {
             this.applicationDbContext = applicationDbContext;
         }
-        public void OnGet()
+        public async Task OnGet()
         {
-           var memberApplicationInfo = applicationDbContext.MemberApplications.ToList();
+           var memberApplicationInfo = applicationDbContext.MemberApplications.ToListAsync();
         }
     }
 }

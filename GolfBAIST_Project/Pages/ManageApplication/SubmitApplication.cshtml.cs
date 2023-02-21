@@ -24,7 +24,7 @@ namespace GolfBAIST_Project.Pages.ManageApplication
         public void OnGet()
         {
         }
-        public IActionResult OnPost ()
+        public async Task<IActionResult> OnPost ()
         {
 
             var addApplication = new MemberApplication()
@@ -54,8 +54,8 @@ namespace GolfBAIST_Project.Pages.ManageApplication
                 SecondShareholderSignDate = AddApplicationRequest.SecondShareholderSignDate,
             };
 
-            _applicationDbContext.MemberApplications.Add(addApplication);
-            _applicationDbContext.SaveChanges();
+            await _applicationDbContext.MemberApplications.AddAsync(addApplication);
+            await _applicationDbContext.SaveChangesAsync();
 
             return RedirectToPage("/ManagerApplication/ReviewApplication");
         }
