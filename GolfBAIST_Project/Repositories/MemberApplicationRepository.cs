@@ -42,7 +42,7 @@ namespace GolfBAIST_Project.Repositories
           return await applicationDbContext.MemberApplications.ToListAsync();    
         }
 
-        public async Task<MemberApplication> GetAllAsync(int applicationId)
+        public async Task<MemberApplication> GetAsync(int applicationId)
         {
             return await applicationDbContext.MemberApplications.FindAsync(applicationId);
         }
