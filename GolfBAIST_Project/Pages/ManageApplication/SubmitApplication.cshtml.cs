@@ -57,7 +57,9 @@ namespace GolfBAIST_Project.Pages.ManageApplication
                 SecondShareholderSignDate = AddApplicationRequest.SecondShareholderSignDate,
             };
 
-           await memberApplicationRepository.AddAsync(addApplication);
+            await memberApplicationRepository.AddAsync(addApplication);
+
+            TempData["MessageDescription"] = "Application has been submitted!";
 
             return RedirectToPage("/ManagerApplication/ReviewApplication");
         }

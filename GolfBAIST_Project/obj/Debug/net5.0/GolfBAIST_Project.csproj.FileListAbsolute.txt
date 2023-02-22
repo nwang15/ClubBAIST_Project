@@ -325,3 +325,4 @@ C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\ne
 C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\ManageApplication\ReviewApplication.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\ManageApplication\EditApplication.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\ManageApplication\ReviewApplication.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\ManageApplication\EditApplication.cshtml.g.cs

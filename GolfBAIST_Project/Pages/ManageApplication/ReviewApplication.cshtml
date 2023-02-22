@@ -1,9 +1,22 @@
-﻿@page "{id:int}"
+﻿@page 
 @model GolfBAIST_Project.Pages.ManageApplication.ReviewApplicationModel
 @{
 }
 
+@{
+    var message = (string)ViewData["MessageDescription"];
 
+}
+@if (!string.IsNullOrWhiteSpace(message.ToString()))
+{
+    <div class="container">
+        <div class="alert alert-success alert-dismissible fade show mb-5" role="alert">
+            @Html.Raw(message)
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+
+}
 
 
 @if (Model.memberApplications != null)

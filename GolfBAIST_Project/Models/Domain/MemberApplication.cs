@@ -9,6 +9,7 @@ namespace GolfBAIST_Project.Models.Domain
 {
     public class MemberApplication
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ApplicationId { get; set; }
         public string MembershipType { get; set; }
@@ -37,6 +38,9 @@ namespace GolfBAIST_Project.Models.Domain
         public string SecondShareholderSignature { get; set; }
         public DateTime SecondShareholderSignDate { get; set; }
         public string ApplicationStatus { get; set; }
+
+        //Navigation Property       
+        public ICollection <MembersInfo> membersInfos { get; set; }
 
 
     }

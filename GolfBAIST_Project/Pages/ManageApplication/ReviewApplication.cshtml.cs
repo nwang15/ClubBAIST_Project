@@ -22,6 +22,11 @@ namespace GolfBAIST_Project.Pages.ManageApplication
         }
         public async Task OnGet()
         {
+            var messageDescription = (string)TempData["MessageDescription"];
+            if (string.IsNullOrWhiteSpace(messageDescription))
+            {
+                ViewData["MessageDescription"] = messageDescription;
+            }
             memberApplications = (await memberApplicationRepository.GetAllAsync())?.ToList();
         }
     }
