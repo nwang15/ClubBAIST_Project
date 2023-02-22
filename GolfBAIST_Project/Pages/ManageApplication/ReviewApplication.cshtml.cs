@@ -14,7 +14,7 @@ namespace GolfBAIST_Project.Pages.ManageApplication
     {
         private readonly IMemberApplicationRepository memberApplicationRepository;
 
-        public List<MemberApplication> memberApplications { get; set; }
+        public List<MemberApplication> MemberApplications { get; set; }
 
         public ReviewApplicationModel(IMemberApplicationRepository memberApplicationRepository)
         {
@@ -27,7 +27,7 @@ namespace GolfBAIST_Project.Pages.ManageApplication
             {
                 ViewData["MessageDescription"] = messageDescription;
             }
-            memberApplications = (await memberApplicationRepository.GetAllAsync())?.ToList();
+            MemberApplications = (await memberApplicationRepository.GetAllAsync())?.ToList();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace GolfBAIST_Project.Repositories
             this.applicationDbContext = applicationDbContext;
         }
 
+        //Submit A Application
         public async Task<MemberApplication> AddAsync(MemberApplication memberApplication)
         {
             await applicationDbContext.MemberApplications.AddAsync(memberApplication);
@@ -24,6 +25,7 @@ namespace GolfBAIST_Project.Repositories
             return memberApplication;
         }
 
+        //Delete A Application
         public async Task<bool> DeleteAsync(int applicationId)
         {
             var existingApplication = await applicationDbContext.MemberApplications.FindAsync(applicationId);
@@ -37,16 +39,13 @@ namespace GolfBAIST_Project.Repositories
             return false;
         }
 
+        //Get All Applications
         public async Task<IEnumerable<MemberApplication>> GetAllAsync()
         {
           return await applicationDbContext.MemberApplications.ToListAsync();    
         }
 
-        public async Task<MemberApplication> GetAsync(int applicationId)
-        {
-            return await applicationDbContext.MemberApplications.FindAsync(applicationId);
-        }
-
+        //Update Application
         public async Task<MemberApplication> UpdateAsync(MemberApplication memberApplication)
         {
             var existingApplication = await applicationDbContext.MemberApplications.FindAsync(memberApplication.ApplicationId);
@@ -81,5 +80,20 @@ namespace GolfBAIST_Project.Repositories
             await applicationDbContext.SaveChangesAsync();
             return existingApplication;
         }
+
+        //Get A Application
+        public async Task<MemberApplication> GetAsync(int applicationId)
+        {
+            return await applicationDbContext.MemberApplications.FindAsync(applicationId);
+        }
+
+        //Add Members Info into Member Table
+        public async Task<MembersInfo> AddAsync(MembersInfo membersInfo)
+        {
+            await applicationDbContext.MembersInfos.AddAsync(membersInfo);
+            await applicationDbContext.SaveChangesAsync();
+            return membersInfo;
+        }
+
     }
 }

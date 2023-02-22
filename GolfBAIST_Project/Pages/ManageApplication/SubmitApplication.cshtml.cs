@@ -19,6 +19,9 @@ namespace GolfBAIST_Project.Pages.ManageApplication
         [BindProperty]
         public AddApplication AddApplicationRequest { get; set; }
 
+        [BindProperty]
+        public MembersInfo AddMembersInfo { get; set; }
+
         public SubmitApplicationModel(IMemberApplicationRepository memberApplicationRepository)
         {
             this.memberApplicationRepository = memberApplicationRepository;
@@ -57,7 +60,15 @@ namespace GolfBAIST_Project.Pages.ManageApplication
                 SecondShareholderSignDate = AddApplicationRequest.SecondShareholderSignDate,
             };
 
+            var addMember = new MembersInfo()
+            {
+                MemberFirstName = AddMembersInfo.MemberFirstName,
+                MemberLastName = AddMembersInfo.MemberLastName,
+                IsMember = AddMembersInfo.IsMember
+            };
+
             await memberApplicationRepository.AddAsync(addApplication);
+            await memberApplicationRepository.AddAsync(addMember);
 
             TempData["MessageDescription"] = "Application has been submitted!";
 

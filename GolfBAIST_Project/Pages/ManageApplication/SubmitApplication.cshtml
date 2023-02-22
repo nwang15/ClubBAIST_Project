@@ -19,11 +19,12 @@
         </select>
     </div>
     <div class="col-md-4">
-       
-    </div>
-    <div class="col-md-4">
         <label for="applicationStatus" class="form-label">Application Status</label>
         <input type="text" class="form-control" id="applicationStatus" value="Applied" asp-for="AddApplicationRequest.ApplicationStatus" readonly>
+    </div>
+    <div class="col-md-4">
+        <label for="isMember" class="form-label">Is Member:</label>
+        <input type="text" class="form-control" id="isMember" value="No" asp-for="AddMembersInfo.IsMember" hidden>
     </div>
     <p></p>
     <div class="col-md-6">
@@ -44,10 +45,8 @@
     </div>
     <div class="col-md-4">
         <label for="personalProvince" class="form-label">Province</label>
-        <select id="personalProvince" class="form-select" asp-for="AddApplicationRequest.MemberProvince">
-            <option selected>Choose...</option>
-            <option>Alberta</option>
-        </select>
+        <input type="text" class="form-control" id="personalProvince" asp-for="AddApplicationRequest.MemberProvince">
+
     </div>
     <div class="col-md-2">
         <label for="personalPostalCode" class="form-label">Postal Code</label>
@@ -85,10 +84,7 @@
     </div>
     <div class="col-md-4">
         <label for="companyProvince" class="form-label">Province</label>
-        <select id="companyProvince" class="form-select" asp-for="AddApplicationRequest.CompanyProvince">
-            <option selected>Choose...</option>
-            <option>Alberta</option>
-        </select>
+        <input type="text" class="form-control" id="companyProvince" asp-for="AddApplicationRequest.CompanyProvince">
     </div>
     <div class="col-md-2">
         <label for="companyPostalCode" class="form-label">Postal Code</label>

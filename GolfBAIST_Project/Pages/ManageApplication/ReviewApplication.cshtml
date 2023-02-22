@@ -19,7 +19,7 @@
 }
 
 
-@if (Model.memberApplications != null)
+@if (Model.MemberApplications != null)
 {
     <div class="container">
         <table class="table">
@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var application in Model.memberApplications)
+                @foreach (var application in Model.MemberApplications)
                 {
                     <tr>
                         <td>@application.ApplicationId</td>

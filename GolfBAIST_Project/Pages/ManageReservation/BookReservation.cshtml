@@ -4,48 +4,32 @@
 }
 
 
-<form class="row g-3">
+<form class="row g-3" method="post">
     <div class="col-md-4">
         <label for="selectDate" class="form-label">Date</label>
-        <input type="date" class="form-control" id="selectDate">
+        <input type="date" class="form-control" id="selectDate" asp-for="Reservation.reservationDate">
     </div>
     <div class="col-md-4">
+        <label for="playerNum" class="form-label">Number of Players</label>
+        <select id="playerNum" class="form-select" asp-for="Reservation.Players">
+            <option selected>Choose...</option>
+            <option value="one">1</option>
+            <option value="two">2</option>
+            <option value="three">3</option>
+            <option value="four">4</option>
+        </select>
+    </div>
+    <p></p>
+    <div class="col-md-4">
         <label for="startTime" class="form-label">Start Time</label>
-        <input type="time" class="form-control" id="startTime">
+        <input type="time" class="form-control" id="startTime" asp-for="Reservation.StartTime">
     </div>
     <div class="col-md-4">
         <label for="endTime" class="form-label">End Time</label>
-        <input type="time" class="form-control" id="endTime">
+        <input type="time" class="form-control" id="endTime" asp-for="Reservation.EndTime">
     </div>
-    <div class="col-md-4">
-        <label for="playerNum" class="form-label">Players</label>
-        <select id="playerNum" class="form-select">
-            <option selected>Choose...</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-        </select>
-    </div>
-
-    <div class="col-md-12">
-        <label for="holes" class="form-label">Select Holes</label>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="eighteenHoles" value="option1" checked>
-            <label class="form-check-label" for="eighteenHoles">
-                18 Holes
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="nineHoles" value="option2">
-            <label class="form-check-label" for="nineHoles">
-                9 Holes
-            </label>
-        </div>
-    </div>
-
 
     <div class="col-12">
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="submit" class="btn btn-primary">Submit Reservation</button>
     </div>
 </form>

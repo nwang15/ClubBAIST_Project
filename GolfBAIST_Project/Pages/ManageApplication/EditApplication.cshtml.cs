@@ -12,7 +12,7 @@ namespace GolfBAIST_Project.Pages.ManageApplication
         private readonly IMemberApplicationRepository memberApplicationRepository;
 
         [BindProperty]
-        public MemberApplication memberApplications { get; set; }
+        public MemberApplication MemberApplications { get; set; }
 
         public EditApplicationModel(IMemberApplicationRepository memberApplicationRepository)
         {
@@ -21,13 +21,13 @@ namespace GolfBAIST_Project.Pages.ManageApplication
 
         public async Task OnGet(int applicationId)
         {
-            memberApplications = await memberApplicationRepository.GetAsync(applicationId);
+            MemberApplications = await memberApplicationRepository.GetAsync(applicationId);
         
         }
 
         public async Task<IActionResult> OnPostEdit()
         {
-            await memberApplicationRepository.UpdateAsync(memberApplications);
+            await memberApplicationRepository.UpdateAsync(MemberApplications);
             ViewData["MessageDescription"] = "Record was successfully saved!";
 
             return Page();
@@ -36,7 +36,7 @@ namespace GolfBAIST_Project.Pages.ManageApplication
 
         public async Task<IActionResult> OnPostDelete()
         {
-           var deleted = await memberApplicationRepository.DeleteAsync(memberApplications.ApplicationId);
+           var deleted = await memberApplicationRepository.DeleteAsync(MemberApplications.ApplicationId);
 
             if (deleted)
             {
