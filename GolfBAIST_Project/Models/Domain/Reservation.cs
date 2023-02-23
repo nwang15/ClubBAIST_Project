@@ -12,7 +12,6 @@ namespace GolfBAIST_Project.Models.Domain
 
         [ForeignKey("MembersInfo")]
         public int MemberId { get; set; }
-        public MembersInfo MemberInfo { get; set; }
         public DateTime reservationDate { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }

@@ -10,14 +10,13 @@ namespace GolfBAIST_Project.Models.Domain
     public class MembersInfo
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MemberId { get; set; }
 
         [ForeignKey("MemberApplication")]
         public int ApplicationId { get; set; }
-        public MemberApplication Application { get; set; }
         public string MemberFirstName { get; set; }
         public string MemberLastName { get; set; }
-        public bool IsMember { get; set; }
 
         public ICollection<Reservation> reservations { get; set; }
     }

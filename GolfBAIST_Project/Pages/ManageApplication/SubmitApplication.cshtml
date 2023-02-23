@@ -19,12 +19,8 @@
         </select>
     </div>
     <div class="col-md-4">
-        <label for="applicationStatus" class="form-label">Application Status</label>
-        <input type="text" class="form-control" id="applicationStatus" value="Applied" asp-for="AddApplicationRequest.ApplicationStatus" readonly>
-    </div>
-    <div class="col-md-4">
-        <label for="isMember" class="form-label">Is Member:</label>
-        <input type="text" class="form-control" id="isMember" value="No" asp-for="AddMembersInfo.IsMember" hidden>
+        <label for="applicationStatus" class="form-label" hidden>Application Status</label>
+        <input type="text" class="form-control" id="applicationStatus" value="Applied" asp-for="AddApplicationRequest.ApplicationStatus" hidden>
     </div>
     <p></p>
     <div class="col-md-6">

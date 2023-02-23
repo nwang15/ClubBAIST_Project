@@ -95,5 +95,14 @@ namespace GolfBAIST_Project.Repositories
             return membersInfo;
         }
 
+        public Task<Reservation> AddAsync(Reservation reservation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Reservation> GetAReservation(int reservationId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -53,8 +53,7 @@ namespace GolfBAIST_Project.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ApplicationId = table.Column<int>(type: "int", nullable: false),
                     MemberFirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MemberLastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsMember = table.Column<bool>(type: "bit", nullable: false)
+                    MemberLastName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -64,7 +63,7 @@ namespace GolfBAIST_Project.Data.Migrations
                         column: x => x.ApplicationId,
                         principalTable: "MemberApplications",
                         principalColumn: "ApplicationId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -96,7 +95,7 @@ namespace GolfBAIST_Project.Data.Migrations
                 column: "ApplicationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservations_MemberInfoMemberId",
+                name: "IX_Reservations_MemberId",
                 table: "Reservations",
                 column: "MemberId");
         }

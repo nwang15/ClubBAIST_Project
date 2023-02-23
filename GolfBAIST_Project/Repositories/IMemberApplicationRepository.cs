@@ -17,7 +17,7 @@ namespace GolfBAIST_Project.Repositories
 
         //Reservation
         Task<Reservation> AddAsync(Reservation reservation);
-        Task<Reservation> GetAsync(int reservationId);
+        Task<Reservation> GetAReservation(int reservationId);
         //Member
         Task<MembersInfo> AddAsync(MembersInfo membersInfo);
         

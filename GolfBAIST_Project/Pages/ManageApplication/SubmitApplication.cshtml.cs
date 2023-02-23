@@ -64,7 +64,7 @@ namespace GolfBAIST_Project.Pages.ManageApplication
             {
                 MemberFirstName = AddMembersInfo.MemberFirstName,
                 MemberLastName = AddMembersInfo.MemberLastName,
-                IsMember = AddMembersInfo.IsMember
+                //IsMember = AddMembersInfo.IsMember
             };
 
             await memberApplicationRepository.AddAsync(addApplication);
