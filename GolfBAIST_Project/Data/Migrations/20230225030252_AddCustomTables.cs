@@ -51,7 +51,7 @@ namespace GolfBAIST_Project.Data.Migrations
                 {
                     MemberId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ApplicationId = table.Column<int>(type: "int", nullable: false),
+                    MemberApplicationApplicationId = table.Column<int>(type: "int", nullable: false),
                     MemberFirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MemberLastName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -59,11 +59,11 @@ namespace GolfBAIST_Project.Data.Migrations
                 {
                     table.PrimaryKey("PK_MembersInfos", x => x.MemberId);
                     table.ForeignKey(
-                        name: "FK_MembersInfos_MemberApplications_ApplicationId",
-                        column: x => x.ApplicationId,
+                        name: "FK_MembersInfos_MemberApplications_MemberApplicationApplicationId",
+                        column: x => x.MemberApplicationApplicationId,
                         principalTable: "MemberApplications",
                         principalColumn: "ApplicationId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -72,7 +72,7 @@ namespace GolfBAIST_Project.Data.Migrations
                 {
                     ReservationId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MemberId = table.Column<int>(type: "int", nullable: false),
+                    MembersInfoMemberId = table.Column<int>(type: "int", nullable: false),
                     reservationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -82,22 +82,23 @@ namespace GolfBAIST_Project.Data.Migrations
                 {
                     table.PrimaryKey("PK_Reservations", x => x.ReservationId);
                     table.ForeignKey(
-                        name: "FK_Reservations_MembersInfos_MemberId",
-                        column: x => x.MemberId,
+                        name: "FK_Reservations_MembersInfos_MembersInfoMemberId",
+                        column: x => x.MembersInfoMemberId,
                         principalTable: "MembersInfos",
                         principalColumn: "MemberId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_MembersInfos_ApplicationId",
+                name: "IX_MembersInfos_MemberApplicationApplicationId",
                 table: "MembersInfos",
-                column: "ApplicationId");
+                column: "MemberApplicationApplicationId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservations_MemberId",
+                name: "IX_Reservations_MembersInfoMemberId",
                 table: "Reservations",
-                column: "MemberId");
+                column: "MembersInfoMemberId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

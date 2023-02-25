@@ -12,9 +12,7 @@ namespace GolfBAIST_Project.Models.Domain
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MemberId { get; set; }
-
-        [ForeignKey("MemberApplication")]
-        public int ApplicationId { get; set; }
+        public int MemberApplicationApplicationId { get; set; }
         public string MemberFirstName { get; set; }
         public string MemberLastName { get; set; }
 
