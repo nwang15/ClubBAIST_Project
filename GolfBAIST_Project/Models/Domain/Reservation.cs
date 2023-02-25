@@ -9,9 +9,7 @@ namespace GolfBAIST_Project.Models.Domain
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ReservationId { get; set; }
-
-        [ForeignKey("MembersInfo")]
-        public int MemberId { get; set; }
+        public int MembersInfoMemberId { get; set; }
         public DateTime reservationDate { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
