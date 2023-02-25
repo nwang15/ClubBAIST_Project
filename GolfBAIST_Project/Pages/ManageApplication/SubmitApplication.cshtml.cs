@@ -32,7 +32,7 @@ namespace GolfBAIST_Project.Pages.ManageApplication
         }
         public async Task<IActionResult> OnPost ()
         {
-
+            
             var addApplication = new MemberApplication()
             {
                 MembershipType = AddApplicationRequest.MembershipType,
@@ -60,19 +60,36 @@ namespace GolfBAIST_Project.Pages.ManageApplication
                 SecondShareholderSignDate = AddApplicationRequest.SecondShareholderSignDate,
             };
 
+            var returnApplication = new MemberApplication();
+
+
+          
+
+            //var memberApplicationId = mem
+            /* MembersInfo membersInfo = new MembersInfo();
+
+             membersInfo.MemberApplicationApplicationId = addApplication.ApplicationId;
+             membersInfo.MemberFirstName = addApplication.MemberFirstName;
+             membersInfo.MemberLastName = addApplication.MemberLastName;*/
+
+
+
+            returnApplication = await memberApplicationRepository.AddAsync(addApplication);
+          //  var applcationId = returnApplication.ApplicationId;
+
             var addMember = new MembersInfo()
             {
-                MemberFirstName = AddMembersInfo.MemberFirstName,
-                MemberLastName = AddMembersInfo.MemberLastName,
+                MemberApplicationApplicationId = returnApplication.ApplicationId,
+                MemberFirstName = returnApplication.MemberFirstName,
+                MemberLastName = returnApplication.MemberLastName
                 //IsMember = AddMembersInfo.IsMember
             };
 
-            await memberApplicationRepository.AddAsync(addApplication);
             await memberApplicationRepository.AddAsync(addMember);
 
             TempData["MessageDescription"] = "Application has been submitted!";
 
-            return RedirectToPage("/ManagerApplication/ReviewApplication");
+            return RedirectToPage("/ManageApplication/ReviewApplication");
         }
     }
 }

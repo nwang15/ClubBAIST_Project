@@ -40,7 +40,7 @@ namespace GolfBAIST_Project.Models.Domain
         public string ApplicationStatus { get; set; }
 
         //Navigation Property       
-        public ICollection <MembersInfo> membersInfos { get; set; }
+        public virtual MembersInfo MembersInfos { get; set; }
 
 
     }

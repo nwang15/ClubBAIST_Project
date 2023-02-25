@@ -90,6 +90,7 @@ namespace GolfBAIST_Project.Repositories
         //Add Members Info into Member Table
         public async Task<MembersInfo> AddAsync(MembersInfo membersInfo)
         {
+
             await applicationDbContext.MembersInfos.AddAsync(membersInfo);
             await applicationDbContext.SaveChangesAsync();
             return membersInfo;

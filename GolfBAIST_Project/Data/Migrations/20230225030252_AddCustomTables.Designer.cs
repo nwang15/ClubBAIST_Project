@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GolfBAIST_Project.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230223023640_AddCustomTables")]
+    [Migration("20230225030252_AddCustomTables")]
     partial class AddCustomTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -191,10 +191,7 @@ namespace GolfBAIST_Project.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ApplicationId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MemberApplicationApplicationId")
+                    b.Property<int>("MemberApplicationApplicationId")
                         .HasColumnType("int");
 
                     b.Property<string>("MemberFirstName")
@@ -205,7 +202,8 @@ namespace GolfBAIST_Project.Data.Migrations
 
                     b.HasKey("MemberId");
 
-                    b.HasIndex("MemberApplicationApplicationId");
+                    b.HasIndex("MemberApplicationApplicationId")
+                        .IsUnique();
 
                     b.ToTable("MembersInfos");
                 });
@@ -220,10 +218,7 @@ namespace GolfBAIST_Project.Data.Migrations
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MemberId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MembersInfoMemberId")
+                    b.Property<int>("MembersInfoMemberId")
                         .HasColumnType("int");
 
                     b.Property<int>("Players")
@@ -380,15 +375,19 @@ namespace GolfBAIST_Project.Data.Migrations
             modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MembersInfo", b =>
                 {
                     b.HasOne("GolfBAIST_Project.Models.Domain.MemberApplication", null)
-                        .WithMany("membersInfos")
-                        .HasForeignKey("MemberApplicationApplicationId");
+                        .WithOne("MembersInfos")
+                        .HasForeignKey("GolfBAIST_Project.Models.Domain.MembersInfo", "MemberApplicationApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("GolfBAIST_Project.Models.Domain.Reservation", b =>
                 {
                     b.HasOne("GolfBAIST_Project.Models.Domain.MembersInfo", null)
                         .WithMany("reservations")
-                        .HasForeignKey("MembersInfoMemberId");
+                        .HasForeignKey("MembersInfoMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -444,7 +443,7 @@ namespace GolfBAIST_Project.Data.Migrations
 
             modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MemberApplication", b =>
                 {
-                    b.Navigation("membersInfos");
+                    b.Navigation("MembersInfos");
                 });
 
             modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MembersInfo", b =>
