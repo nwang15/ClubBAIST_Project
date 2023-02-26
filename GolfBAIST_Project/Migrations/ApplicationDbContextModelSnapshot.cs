@@ -4,16 +4,14 @@ using GolfBAIST_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace GolfBAIST_Project.Data.Migrations
+namespace GolfBAIST_Project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230211201808_ModifyLengthAspNetUsersCustomFields")]
-    partial class ModifyLengthAspNetUsersCustomFields
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,6 +25,9 @@ namespace GolfBAIST_Project.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ApplicationId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -92,6 +93,156 @@ namespace GolfBAIST_Project.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MemberApplication", b =>
+                {
+                    b.Property<int>("ApplicationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyPhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyPostalCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyProvince")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstShareholderFullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FirstShareholderSignDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstShareholderSignature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("MemberAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MemberCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("MemberDOB")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MemberEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MemberFirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MemberLastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MemberPhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MemberPostalCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MemberProvince")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("MemberSignDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MemberSignature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MembershipType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Occupation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecondShareholderFullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SecondShareholderSignDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SecondShareholderSignature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ApplicationId");
+
+                    b.HasIndex("Id")
+                        .IsUnique()
+                        .HasFilter("[Id] IS NOT NULL");
+
+                    b.ToTable("MemberApplications");
+                });
+
+            modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MembersInfo", b =>
+                {
+                    b.Property<int>("MemberId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MemberApplicationApplicationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MemberFirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MemberLastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MemberId");
+
+                    b.HasIndex("MemberApplicationApplicationId")
+                        .IsUnique();
+
+                    b.ToTable("MembersInfos");
+                });
+
+            modelBuilder.Entity("GolfBAIST_Project.Models.Domain.Reservation", b =>
+                {
+                    b.Property<int>("ReservationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MembersInfoMemberId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Players")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("reservationDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ReservationId");
+
+                    b.HasIndex("MembersInfoMemberId");
+
+                    b.ToTable("Reservations");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -229,6 +380,33 @@ namespace GolfBAIST_Project.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MemberApplication", b =>
+                {
+                    b.HasOne("GolfBAIST_Project.Data.ApplicationUser", "ApplicationUser")
+                        .WithOne("MemberApplication")
+                        .HasForeignKey("GolfBAIST_Project.Models.Domain.MemberApplication", "Id");
+
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MembersInfo", b =>
+                {
+                    b.HasOne("GolfBAIST_Project.Models.Domain.MemberApplication", null)
+                        .WithOne("MembersInfos")
+                        .HasForeignKey("GolfBAIST_Project.Models.Domain.MembersInfo", "MemberApplicationApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("GolfBAIST_Project.Models.Domain.Reservation", b =>
+                {
+                    b.HasOne("GolfBAIST_Project.Models.Domain.MembersInfo", null)
+                        .WithMany("reservations")
+                        .HasForeignKey("MembersInfoMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -278,6 +456,21 @@ namespace GolfBAIST_Project.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("GolfBAIST_Project.Data.ApplicationUser", b =>
+                {
+                    b.Navigation("MemberApplication");
+                });
+
+            modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MemberApplication", b =>
+                {
+                    b.Navigation("MembersInfos");
+                });
+
+            modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MembersInfo", b =>
+                {
+                    b.Navigation("reservations");
                 });
 #pragma warning restore 612, 618
         }

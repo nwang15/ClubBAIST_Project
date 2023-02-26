@@ -13,6 +13,7 @@ namespace GolfBAIST_Project.Models.Domain
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ApplicationId { get; set; }
+        public string Id { get; set; }
         public string MembershipType { get; set; }
         public string MemberFirstName { get; set; }
         public string MemberLastName { get; set; }

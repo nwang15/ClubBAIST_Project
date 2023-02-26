@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace GolfBAIST_Project.Data.Migrations
+namespace GolfBAIST_Project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230225030252_AddCustomTables")]
-    partial class AddCustomTables
+    [Migration("20230226174900_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,9 @@ namespace GolfBAIST_Project.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ApplicationId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -131,6 +134,9 @@ namespace GolfBAIST_Project.Data.Migrations
                     b.Property<string>("FirstShareholderSignature")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("MemberAddress")
                         .HasColumnType("nvarchar(max)");
 
@@ -180,6 +186,10 @@ namespace GolfBAIST_Project.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ApplicationId");
+
+                    b.HasIndex("Id")
+                        .IsUnique()
+                        .HasFilter("[Id] IS NOT NULL");
 
                     b.ToTable("MemberApplications");
                 });
@@ -372,6 +382,15 @@ namespace GolfBAIST_Project.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MemberApplication", b =>
+                {
+                    b.HasOne("GolfBAIST_Project.Data.ApplicationUser", "ApplicationUser")
+                        .WithOne("MemberApplication")
+                        .HasForeignKey("GolfBAIST_Project.Models.Domain.MemberApplication", "Id");
+
+                    b.Navigation("ApplicationUser");
+                });
+
             modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MembersInfo", b =>
                 {
                     b.HasOne("GolfBAIST_Project.Models.Domain.MemberApplication", null)
@@ -439,6 +458,11 @@ namespace GolfBAIST_Project.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("GolfBAIST_Project.Data.ApplicationUser", b =>
+                {
+                    b.Navigation("MemberApplication");
                 });
 
             modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MemberApplication", b =>
