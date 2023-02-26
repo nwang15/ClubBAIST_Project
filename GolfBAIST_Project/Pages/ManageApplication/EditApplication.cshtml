@@ -4,20 +4,6 @@
 }
 
 
-@{
-    var message =(string) ViewData["MessageDescription"];
-}
-
-@if (!string.IsNullOrWhiteSpace(message.ToString()))
-{
-    <div class="container">
-        <div class="alert alert-success alert-dismissible fade show mb-5" role="alert">
-            @Html.Raw(message)
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
-    
-}
 
 @if (Model.MemberApplications != null)
 {
@@ -39,11 +25,14 @@
             </select>
         </div>
         <div class="col-md-4">
-
-        </div>
-        <div class="col-md-4">
             <label for="applicationStatus" class="form-label">Application Status</label>
-            <input type="text" class="form-control" id="applicationStatus" value="Applied" asp-for="MemberApplications.ApplicationStatus" readonly>
+            <select id="applicationStatus" class="form-select" asp-for="MemberApplications.ApplicationStatus">
+                <option selected>Choose...</option>
+                <option>Accepted</option>
+                <option >Denied</option>
+                <option>On Hold</option>
+                <option>Waitlisted</option>
+            </select>
         </div>
         <p></p>
         <div class="col-md-6">
@@ -120,16 +109,7 @@
             <input type="tel" class="form-control" id="companyPhoneNumber" asp-for="MemberApplications.CompanyPhoneNumber">
         </div>
         <p></p>
-        <div class="col-12">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="personalInfoCheck">
-                <label class="form-check-label" for="personalInfoCheck">
-                    I hereby apply to become a Shareholder/Associate of Club of BAIST. If Seleted I agree to pay the annual dues and
-                    I also agree to become bound by the Memorandum and Articles of Association of Club BAIST, and the rules,
-                    regulations and By-laws of the Directors of Club BAIST, and all amendments thereto.
-                </label>
-            </div>
-        </div>
+     
         <div class="col-md-4">
             <label for="memberSignature" class="form-label">Signature</label>
             <input type="text" class="form-control" id="memberSignature" asp-for="MemberApplications.MemberSignature">
@@ -143,15 +123,7 @@
 
         <p></p>
         <p>Reference Information</p>
-        <div class="col-12">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="refCheck">
-                <label class="form-check-label" for="refCheck">
-                    The above named applicant is personally known to me, and I believe him/her to be a suitable persion to be slected
-                    as a member of Club BAIST.
-                </label>
-            </div>
-        </div>
+       
         <div class="col-md-6">
             <label for="firstShareHolderName" class="form-label">First Share Holder Name</label>
             <input type="text" class="form-control" id="firstShareHolderName" asp-for="MemberApplications.FirstShareholderFullName">
@@ -171,15 +143,7 @@
         </div>
         <p></p>
         <p>PRIVACY INFORMATION</p>
-        <div class="col-12">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="privacyCheck">
-                <label class="form-check-label" for="privacyCheck">
-                    The information you provide on this document is requested strictly to update our membership data and the
-                    Membership Roster. This information will not be used for any other purpose except with your written permission
-                </label>
-            </div>
-        </div>
+      
 
         <div class="col-12">
             <button type="submit" class="btn btn-primary" asp-page-handler="Edit">Submit Application</button>

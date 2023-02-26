@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GolfBAIST_Project.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -41,6 +42,8 @@ namespace GolfBAIST_Project.Models.Domain
 
         //Navigation Property       
         public virtual MembersInfo MembersInfos { get; set; }
+        [ForeignKey("Id")]
+        public ApplicationUser ApplicationUser { get; set; }
 
 
     }

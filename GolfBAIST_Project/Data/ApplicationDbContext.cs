@@ -15,6 +15,9 @@ namespace GolfBAIST_Project.Data
         public string FirstName { get; set; }
         [StringLength(250)]
         public string LastName { get; set; }
+
+        public int ApplicationId { get; set; }
+        public MemberApplication MemberApplication { get; set; }
             
     }
     public class ApplicationDbContext : IdentityDbContext <ApplicationUser>

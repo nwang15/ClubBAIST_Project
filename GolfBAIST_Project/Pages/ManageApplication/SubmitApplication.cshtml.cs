@@ -58,31 +58,18 @@ namespace GolfBAIST_Project.Pages.ManageApplication
                 SecondShareholderFullName = AddApplicationRequest.SecondShareholderFullName,
                 FirstShareholderSignDate = AddApplicationRequest.FirstShareholderSignDate,
                 SecondShareholderSignDate = AddApplicationRequest.SecondShareholderSignDate,
+                ApplicationStatus = AddApplicationRequest.ApplicationStatus
             };
 
             var returnApplication = new MemberApplication();
 
-
-          
-
-            //var memberApplicationId = mem
-            /* MembersInfo membersInfo = new MembersInfo();
-
-             membersInfo.MemberApplicationApplicationId = addApplication.ApplicationId;
-             membersInfo.MemberFirstName = addApplication.MemberFirstName;
-             membersInfo.MemberLastName = addApplication.MemberLastName;*/
-
-
-
             returnApplication = await memberApplicationRepository.AddAsync(addApplication);
-          //  var applcationId = returnApplication.ApplicationId;
 
             var addMember = new MembersInfo()
             {
                 MemberApplicationApplicationId = returnApplication.ApplicationId,
                 MemberFirstName = returnApplication.MemberFirstName,
                 MemberLastName = returnApplication.MemberLastName
-                //IsMember = AddMembersInfo.IsMember
             };
 
             await memberApplicationRepository.AddAsync(addMember);

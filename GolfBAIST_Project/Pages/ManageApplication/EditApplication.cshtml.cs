@@ -28,7 +28,7 @@ namespace GolfBAIST_Project.Pages.ManageApplication
         public async Task<IActionResult> OnPostEdit()
         {
             await memberApplicationRepository.UpdateAsync(MemberApplications);
-            ViewData["MessageDescription"] = "Record was successfully saved!";
+           // ViewData["MessageDescription"] = "Record was successfully saved!";
 
             return Page();
         }

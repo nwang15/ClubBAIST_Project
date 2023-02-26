@@ -75,6 +75,7 @@ namespace GolfBAIST_Project.Repositories
                 existingApplication.SecondShareholderFullName = memberApplication.SecondShareholderFullName;
                 existingApplication.FirstShareholderSignDate = memberApplication.FirstShareholderSignDate;
                 existingApplication.SecondShareholderSignDate = memberApplication.SecondShareholderSignDate;
+                existingApplication.ApplicationStatus = memberApplication.ApplicationStatus;
             }
 
             await applicationDbContext.SaveChangesAsync();
