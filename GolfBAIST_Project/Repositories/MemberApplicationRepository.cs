@@ -101,10 +101,5 @@ namespace GolfBAIST_Project.Repositories
         {
             throw new NotImplementedException();
         }
-
-        public Task<Reservation> GetAReservation(int reservationId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

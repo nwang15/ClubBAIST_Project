@@ -1,0 +1,25 @@
+﻿@page
+@model GolfBAIST_Project.Pages.Admin.ReviewAllApplicationsModel
+@{
+}
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Application Id</td>
+                <td>Name</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var application in Model.MemberApplications)
+            {
+                <tr>
+                    <td>@application.ApplicationId</td>
+                    <td>@application.MemberLastName, @application.MemberFirstName</td>
+                    <td><a href="/Admin/UpdateMemberApplication/@application.ApplicationId">View</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

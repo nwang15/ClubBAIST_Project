@@ -1,0 +1,37 @@
+﻿@page
+@model GolfBAIST_Project.Pages.Member.BookReservationModel
+@{
+}
+
+
+<form class="row g-3" method="post">
+
+    <div class="col-md-4">
+        <label for="selectDate" class="form-label">Date</label>
+        <input type="date" class="form-control" id="selectDate" asp-for="AddReservationRequest.reservationDate">
+    </div>
+    <div class="col-md-4">
+        <label for="playerNum" class="form-label">Number of Players</label>
+        <select id="playerNum" class="form-select" asp-for="AddReservationRequest.Players">
+            <option selected>Choose...</option>
+            <option value="one">1</option>
+            <option value="two">2</option>
+            <option value="three">3</option>
+            <option value="four">4</option>
+        </select>
+    </div>
+    <p></p>
+    <div class="col-md-4">
+        <label for="startTime" class="form-label">Start Time</label>
+        <input type="time" class="form-control" id="startTime" asp-for="AddReservationRequest.StartTime">
+    </div>
+    <div class="col-md-4">
+        <label for="endTime" class="form-label">End Time</label>
+        <input type="time" class="form-control" id="endTime" asp-for="AddReservationRequest.EndTime">
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit Reservation</button>
+        <button type="reset" class="btn btn-secondary">Clear Reservation</button>
+    </div>
+</form>

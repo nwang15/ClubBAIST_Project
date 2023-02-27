@@ -1,0 +1,31 @@
+﻿@page
+@model GolfBAIST_Project.Pages.Admin.ReviewAllReservationsModel
+@{
+}
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Reservation Id</td>
+                <td>Reservation Date</td>
+                <td>Start Time</td>
+                <td>End Time</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reservation in Model.Reservations)
+            {
+            <tr>
+                <td>@reservation.ReservationId</td>
+                <td>@reservation.reservationDate</td>
+                <td>@reservation.StartTime</td>
+                <td>@reservation.EndTime</td>
+                <td><a href="/Admin/UpdateMemberApplication/@reservation.ReservationId">View</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -15,9 +15,7 @@ namespace GolfBAIST_Project.Repositories
         Task<MemberApplication> UpdateAsync(MemberApplication memberApplication);
         Task<bool> DeleteAsync(int applicationId);
 
-        //Reservation
-        Task<Reservation> AddAsync(Reservation reservation);
-        Task<Reservation> GetAReservation(int reservationId);
+       
         //Member
         Task<MembersInfo> AddAsync(MembersInfo membersInfo);
         
