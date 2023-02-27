@@ -43,9 +43,9 @@ namespace GolfBAIST_Project.Models.Domain
 
         //Navigation Property       
         public virtual MembersInfo MembersInfos { get; set; }
+
         [ForeignKey("Id")]
         public ApplicationUser ApplicationUser { get; set; }
-
 
     }
 }

@@ -26,9 +26,6 @@ namespace GolfBAIST_Project.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    ApplicationId = table.Column<int>(type: "int", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -38,7 +35,7 @@ namespace GolfBAIST_Project.Migrations
                     SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: true),
                     TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                     LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
@@ -161,6 +158,7 @@ namespace GolfBAIST_Project.Migrations
                 {
                     ApplicationId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     MembershipType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MemberFirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MemberLastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -186,8 +184,7 @@ namespace GolfBAIST_Project.Migrations
                     SecondShareholderFullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SecondShareholderSignature = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SecondShareholderSignDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ApplicationStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    ApplicationStatus = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -286,9 +283,7 @@ namespace GolfBAIST_Project.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_MemberApplications_Id",
                 table: "MemberApplications",
-                column: "Id",
-                unique: true,
-                filter: "[Id] IS NOT NULL");
+                column: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MembersInfos_MemberApplicationApplicationId",

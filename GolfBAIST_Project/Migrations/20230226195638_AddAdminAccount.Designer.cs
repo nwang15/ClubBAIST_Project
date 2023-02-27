@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GolfBAIST_Project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230226174900_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20230226195638_AddAdminAccount")]
+    partial class AddAdminAccount
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,9 +29,6 @@ namespace GolfBAIST_Project.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("ApplicationId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -43,19 +40,14 @@ namespace GolfBAIST_Project.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("FirstName")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<string>("LastName")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NickName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -187,9 +179,7 @@ namespace GolfBAIST_Project.Migrations
 
                     b.HasKey("ApplicationId");
 
-                    b.HasIndex("Id")
-                        .IsUnique()
-                        .HasFilter("[Id] IS NOT NULL");
+                    b.HasIndex("Id");
 
                     b.ToTable("MemberApplications");
                 });
@@ -385,8 +375,8 @@ namespace GolfBAIST_Project.Migrations
             modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MemberApplication", b =>
                 {
                     b.HasOne("GolfBAIST_Project.Data.ApplicationUser", "ApplicationUser")
-                        .WithOne("MemberApplication")
-                        .HasForeignKey("GolfBAIST_Project.Models.Domain.MemberApplication", "Id");
+                        .WithMany()
+                        .HasForeignKey("Id");
 
                     b.Navigation("ApplicationUser");
                 });
@@ -458,11 +448,6 @@ namespace GolfBAIST_Project.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("GolfBAIST_Project.Data.ApplicationUser", b =>
-                {
-                    b.Navigation("MemberApplication");
                 });
 
             modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MemberApplication", b =>
