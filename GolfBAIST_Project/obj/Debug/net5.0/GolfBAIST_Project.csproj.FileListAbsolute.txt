@@ -330,7 +330,7 @@ D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\n
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Admin\ReviewAllApplications.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Admin\UpdateMemberApplication.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\SubmitApplication.cshtml.g.cs
-D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\GolfBAIST_Project.csproj.AssemblyReference.cache
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Admin\ReviewAllReservations.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\BookReservation.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ReviewApplication.cshtml.g.cs
+D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ApplicationInfo.cshtml.g.cs

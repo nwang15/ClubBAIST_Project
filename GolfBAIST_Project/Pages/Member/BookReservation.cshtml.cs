@@ -13,37 +13,54 @@ namespace GolfBAIST_Project.Pages.Member
     public class BookReservationModel : PageModel
     {
         private readonly IMemberReservationRepository memberReservationRepository;
+        private readonly IMemberApplicationRepository memberApplicationRepository;
 
         [BindProperty]
         public AddReservation AddReservationRequest { get; set; }
 
+        public MemberApplication MemberApplication { get; set; }
+
         [BindProperty]
         public MembersInfo MembersInfo { get; set; }
 
-        public BookReservationModel(IMemberReservationRepository memberReservationRepository)
+        public string memberstatus { get; set; }
+        public string Message { get; set; }
+
+
+        public BookReservationModel(IMemberReservationRepository memberReservationRepository, IMemberApplicationRepository memberApplicationRepository)
         {
             this.memberReservationRepository = memberReservationRepository;
+            this.memberApplicationRepository = memberApplicationRepository;
         }
 
-        public void OnGet()
+        public async Task OnGet(int applicationId)
         {
+            MemberApplication = await memberApplicationRepository.GetAsync(applicationId);
+            memberstatus = MemberApplication.ApplicationStatus;
+
         }
 
         public async Task<IActionResult> OnPost()
         {
-
-
-            var addReservation = new Reservation()
+            if (MemberApplication.ApplicationStatus == "Approved")
             {
-               reservationDate = AddReservationRequest.reservationDate,
-               StartTime = AddReservationRequest.StartTime,
-               EndTime = AddReservationRequest.EndTime
-            };
+                var addReservation = new Reservation()
+                {
+                    reservationDate = AddReservationRequest.reservationDate,
+                    StartTime = AddReservationRequest.StartTime,
+                    EndTime = AddReservationRequest.EndTime
+                };
 
 
-            await memberReservationRepository.AddAsync(addReservation);
+                await memberReservationRepository.AddAsync(addReservation);
+            }
+            else
+            {
 
-            TempData["MessageDescription"] = "Reservation has been submitted!";
+            }
+
+
+
 
             return RedirectToPage("/Admin/ReviewAllReservations");
         }

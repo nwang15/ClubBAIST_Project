@@ -97,9 +97,10 @@ namespace GolfBAIST_Project.Repositories
             return membersInfo;
         }
 
-        public Task<Reservation> AddAsync(Reservation reservation)
+
+        public async Task<MemberApplication> GetAppicationForMember(string userid)
         {
-            throw new NotImplementedException();
+            return await applicationDbContext.MemberApplications.FindAsync(userid);
         }
     }
 }

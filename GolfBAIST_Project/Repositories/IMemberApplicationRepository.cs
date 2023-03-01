@@ -11,6 +11,8 @@ namespace GolfBAIST_Project.Repositories
         //Member Application
         Task<IEnumerable<MemberApplication>> GetAllAsync();
         Task<MemberApplication> GetAsync(int applicationId);
+
+        Task<MemberApplication> GetAppicationForMember(string userid);
         Task<MemberApplication> AddAsync(MemberApplication memberApplication);
         Task<MemberApplication> UpdateAsync(MemberApplication memberApplication);
         Task<bool> DeleteAsync(int applicationId);

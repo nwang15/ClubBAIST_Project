@@ -34,5 +34,11 @@ namespace GolfBAIST_Project.Repositories
         {
             throw new NotImplementedException();
         }
+
+        //get member application info to check if application status for Book Reservation
+       /* public async Task<MemberApplication> GetAsync(int applicationId, string userId)
+        {
+            return await applicationDbContext.MemberApplications.FindAsync(applicationId, userId);
+        }*/
     }
 }

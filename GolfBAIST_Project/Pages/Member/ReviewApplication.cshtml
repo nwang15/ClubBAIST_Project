@@ -3,4 +3,35 @@
 @{
 }
 
-Review My Application Page Test
+
+
+
+@Model.userId
+
+
+<div class="col-md-4">
+    <input type="text" class="form-control" id="userId" value="@Model.userId" readonly>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Application Id</td>
+                <td>Name</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var application in Model.MemberApplications)
+            {
+            <tr>
+                <td>@application.ApplicationId</td>
+                <td>@application.MemberLastName, @application.MemberFirstName</td>
+                <td>@application.ApplicationStatus</td>
+                <td><a href="/Member/ApplicationInfo/@application.ApplicationId">View</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
