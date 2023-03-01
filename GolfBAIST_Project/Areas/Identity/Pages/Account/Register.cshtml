@@ -27,7 +27,15 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+
+            <div class="form-group">
+                <input asp-for="Input.Nickname" class="form-control" value="Member" hidden />
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+          
         </form>
     </div>
     <div class="col-md-6 col-md-offset-2">

@@ -4,11 +4,13 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-    @if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result,"admin")){
-        <li class="nav-item dropdown show">
-            <a class="dropdown-toggle nav-link text-dark" href="#" data-toggle = "dropdown">Admin Login Test</a>
-        </li>
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+{
+    <li class="nav-item dropdown show">
+        <a class="dropdown-toggle nav-link text-dark" href="#" data-toggle="dropdown">Admin Login Test</a>
+    </li>
 
-           
-    }
+
+}
+
 

@@ -6,6 +6,7 @@ using GolfBAIST_Project.Data;
 using GolfBAIST_Project.Models.Domain;
 using GolfBAIST_Project.Models.ViewModels;
 using GolfBAIST_Project.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -13,8 +14,11 @@ namespace GolfBAIST_Project.Pages.Member
 {
     public class SubmitApplicationModel : PageModel
     {
-       
+
+
         private readonly IMemberApplicationRepository memberApplicationRepository;
+
+        private readonly UserManager<ApplicationUser> _userManager;
 
         [BindProperty]
         public AddApplication AddApplicationRequest { get; set; }
@@ -22,17 +26,23 @@ namespace GolfBAIST_Project.Pages.Member
         [BindProperty]
         public MembersInfo AddMembersInfo { get; set; }
 
-        public SubmitApplicationModel(IMemberApplicationRepository memberApplicationRepository)
+        [BindProperty]
+        public string userId { get; set; }
+
+        public SubmitApplicationModel(IMemberApplicationRepository memberApplicationRepository, UserManager<ApplicationUser> userManager)
         {
             this.memberApplicationRepository = memberApplicationRepository;
+            this._userManager = userManager;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            userId = _userManager.GetUserId(HttpContext.User);
+            return Page();
         }
         public async Task<IActionResult> OnPost ()
         {
-            
+
             var addApplication = new MemberApplication()
             {
                 MembershipType = AddApplicationRequest.MembershipType,
@@ -58,7 +68,8 @@ namespace GolfBAIST_Project.Pages.Member
                 SecondShareholderFullName = AddApplicationRequest.SecondShareholderFullName,
                 FirstShareholderSignDate = AddApplicationRequest.FirstShareholderSignDate,
                 SecondShareholderSignDate = AddApplicationRequest.SecondShareholderSignDate,
-                ApplicationStatus = AddApplicationRequest.ApplicationStatus
+                ApplicationStatus = AddApplicationRequest.ApplicationStatus,
+                Id = AddApplicationRequest.Id
             };
 
             var returnApplication = new MemberApplication();
@@ -76,7 +87,7 @@ namespace GolfBAIST_Project.Pages.Member
 
             TempData["MessageDescription"] = "Application has been submitted!";
 
-            return RedirectToPage("/ManageApplication/ReviewApplication");
+            return RedirectToPage("/Member/ReviewApplication");
         }
     }
 }

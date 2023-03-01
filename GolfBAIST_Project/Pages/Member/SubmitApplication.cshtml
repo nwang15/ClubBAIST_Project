@@ -4,10 +4,11 @@
 }
 
 <h1>Submit Application</h1>
-
+@Model.userId
 <form class="row g-3" method="post">
     <p></p>
     <p>Personal Information</p>
+
 
     <div class="col-md-4">
         <label for="membershipType" class="form-label">Membership Type</label>
@@ -17,6 +18,10 @@
             <option>Sliver</option>
             <option>Gold</option>
         </select>
+    </div>
+    <div class="col-md-4">
+
+        <input type="text" class="form-control" id="userId" value="@Model.userId" asp-for="AddApplicationRequest.Id" hidden>
     </div>
     <div class="col-md-4">
         <label for="applicationStatus" class="form-label" hidden>Application Status</label>

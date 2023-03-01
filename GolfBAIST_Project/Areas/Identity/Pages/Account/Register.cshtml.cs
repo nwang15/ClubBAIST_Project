@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using System.Text.RegularExpressions;
 
 namespace GolfBAIST_Project.Areas.Identity.Pages.Account
 {
@@ -24,17 +25,28 @@ namespace GolfBAIST_Project.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        //Coding By Annd
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ApplicationDbContext _db;
+        public const string AdminEndUser = "Admin";
+        public const string MemberEndUser = "Member";
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager,
+            ApplicationDbContext db
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            //Coding By Anna
+            _roleManager = roleManager;
+            _db = db;
         }
 
         [BindProperty]
@@ -61,6 +73,11 @@ namespace GolfBAIST_Project.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public string Nickname { get; set; }
+           
+
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -73,12 +90,32 @@ namespace GolfBAIST_Project.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, NickName = Input.Nickname };
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                var regex = @"^[^@\s]+@admin.(com|net|org|gov)$";
+
                 if (result.Succeeded)
                 {
+
+                    //Customize Coding By Anna - Start
+
+                    if (Regex.IsMatch(Input.Email,regex))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(AdminEndUser));
+                    }
+                    else
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(MemberEndUser));
+                    }
+
+                      
+                  
+                    //await _userManager.AddToRoleAsync(user, AdminEndUser);
+
+                    //End
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
