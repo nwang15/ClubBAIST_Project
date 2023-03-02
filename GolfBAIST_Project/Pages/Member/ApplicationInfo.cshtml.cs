@@ -29,7 +29,7 @@ namespace GolfBAIST_Project.Pages.Member
 
             if (deleted)
             {
-                return RedirectToPage("/ManagerApplication/ReviewApplication");
+                return RedirectToPage("/Index");
             }
             return Page();
         }
