@@ -10,11 +10,8 @@ namespace GolfBAIST_Project.Repositories
     {
         //Reservation
         Task<Reservation> AddAsync(Reservation reservation);
-        Task<Reservation> GetAReservation(int reservationId);
-        Task<IEnumerable<Reservation>> GetAllAsync();
+       
 
-        //get member application info to check if application status for Book Reservation
-       /* Task<MemberApplication> GetAsync(int applicationId, string userId);*/
 
     }
 }

@@ -14,11 +14,12 @@
         <tbody>
             @foreach (var application in Model.MemberApplications)
             {
-                <tr>
-                    <td>@application.ApplicationId</td>
-                    <td>@application.MemberLastName, @application.MemberFirstName</td>
-                    <td><a href="/Admin/UpdateMemberApplication/@application.ApplicationId">View</a></td>
-                </tr>
+            <tr>
+                <td>@application.ApplicationId</td>
+                <td>@application.MemberLastName, @application.MemberFirstName</td>
+                <td>@application.ApplicationStatus</td>
+                <td><a href="/Admin/UpdateMemberApplication/@application.ApplicationId">View</a></td>
+            </tr>
             }
         </tbody>
     </table>

@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GolfBAIST_Project.Data;
 using GolfBAIST_Project.Models.Domain;
 using GolfBAIST_Project.Models.ViewModels;
 using GolfBAIST_Project.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -13,56 +15,69 @@ namespace GolfBAIST_Project.Pages.Member
     public class BookReservationModel : PageModel
     {
         private readonly IMemberReservationRepository memberReservationRepository;
-        private readonly IMemberApplicationRepository memberApplicationRepository;
+        private readonly ApplicationDbContext _applicationDbContext;
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        [BindProperty]
+        public string message { get; set; }
+        public string userId { get; set; }
+        public string memberStatus { get; set; }
+        public string memberType { get; set; }
+
+        public int ApplicationId { get; set; }
+        [BindProperty]
+        public int memberId { get; set; }
+
+        [BindProperty]
+        public MemberApplication MemberApplication { get; set; }
+
+        [BindProperty]
+        public MembersInfo MembersInfo  { get; set; }
 
         [BindProperty]
         public AddReservation AddReservationRequest { get; set; }
 
-        public MemberApplication MemberApplication { get; set; }
-
-        [BindProperty]
-        public MembersInfo MembersInfo { get; set; }
-
-        public string memberstatus { get; set; }
-        public string Message { get; set; }
-
-
-        public BookReservationModel(IMemberReservationRepository memberReservationRepository, IMemberApplicationRepository memberApplicationRepository)
+        public BookReservationModel(IMemberReservationRepository memberReservationRepository,
+                                    ApplicationDbContext applicationDbContext, 
+                                    UserManager<ApplicationUser> userManager)
         {
             this.memberReservationRepository = memberReservationRepository;
-            this.memberApplicationRepository = memberApplicationRepository;
+            this._applicationDbContext = applicationDbContext;
+            this._userManager = userManager;
         }
 
-        public async Task OnGet(int applicationId)
+        public void OnGet()
         {
-            MemberApplication = await memberApplicationRepository.GetAsync(applicationId);
-            memberstatus = MemberApplication.ApplicationStatus;
+            userId = _userManager.GetUserId(HttpContext.User);
+            MemberApplication = _applicationDbContext.MemberApplications.Where(x => x.Id.Equals(userId)).FirstOrDefault();
+            memberStatus = MemberApplication.ApplicationStatus;
+            memberType = MemberApplication.MembershipType;
+            ApplicationId = MemberApplication.ApplicationId;
+
+            MembersInfo = _applicationDbContext.MembersInfos.Where(a => a.MemberApplicationApplicationId.Equals(ApplicationId)).FirstOrDefault();
+            memberId = MembersInfo.MemberId;
+
+
 
         }
 
         public async Task<IActionResult> OnPost()
         {
-            if (MemberApplication.ApplicationStatus == "Approved")
+
+            var addReservation = new Reservation()
             {
-                var addReservation = new Reservation()
-                {
-                    reservationDate = AddReservationRequest.reservationDate,
-                    StartTime = AddReservationRequest.StartTime,
-                    EndTime = AddReservationRequest.EndTime
+                reservationDate = AddReservationRequest.reservationDate,
+                Players = AddReservationRequest.Players,
+                StartTime = AddReservationRequest.StartTime,
+                EndTime = AddReservationRequest.EndTime,
+                MembersInfoMemberId = AddReservationRequest.MembersInfoMemberId
                 };
 
-
                 await memberReservationRepository.AddAsync(addReservation);
-            }
-            else
-            {
-
-            }
+          
 
 
-
-
-            return RedirectToPage("/Admin/ReviewAllReservations");
+            return RedirectToPage("/Index");
         }
     }
 }

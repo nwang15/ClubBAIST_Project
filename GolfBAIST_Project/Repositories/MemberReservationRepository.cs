@@ -24,21 +24,8 @@ namespace GolfBAIST_Project.Repositories
             return reservation;
         }
 
-        //Admin Get All Reservations
-        public Task<IEnumerable<Reservation>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
+    
 
-        public Task<Reservation> GetAReservation(int reservationId)
-        {
-            throw new NotImplementedException();
-        }
-
-        //get member application info to check if application status for Book Reservation
-       /* public async Task<MemberApplication> GetAsync(int applicationId, string userId)
-        {
-            return await applicationDbContext.MemberApplications.FindAsync(applicationId, userId);
-        }*/
+       
     }
 }

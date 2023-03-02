@@ -33,6 +33,7 @@ namespace GolfBAIST_Project
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IMemberApplicationRepository, MemberApplicationRepository>();
+            services.AddScoped<IMemberReservationRepository, MemberReservationRepository>();
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 

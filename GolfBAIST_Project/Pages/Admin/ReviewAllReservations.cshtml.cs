@@ -21,7 +21,7 @@ namespace GolfBAIST_Project.Pages.Admin
         }
         public async Task OnGet()
         {
-            Reservations = (await memberReservationRepository.GetAllAsync())?.ToList();
+            //Reservations = (await memberReservationRepository.GetAllAsync())?.ToList();
         }
     }
 }
