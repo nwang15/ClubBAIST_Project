@@ -317,10 +317,6 @@ D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\n
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\ref\GolfBAIST_Project.dll
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\GolfBAIST_Project.pdb
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\GolfBAIST_Project.genruntimeconfig.cache
-C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\ManageApplication\SubmitApplication.cshtml.g.cs
-C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\ManageReservation\BookReservation.cshtml.g.cs
-C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\ManageApplication\EditApplication.cshtml.g.cs
-C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\ManageApplication\ReviewAllApplications.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
@@ -335,3 +331,17 @@ D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\n
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ReviewApplication.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ApplicationInfo.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\GolfBAIST_Project.csproj.AssemblyReference.cache
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Admin\ReviewAllApplications.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Admin\ReviewAllReservations.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Admin\UpdateMemberApplication.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ApplicationInfo.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\BookReservation.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ReviewApplication.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\SubmitApplication.cshtml.g.cs
+C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\TimeTesting.cshtml.g.cs

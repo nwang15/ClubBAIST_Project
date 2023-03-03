@@ -3,44 +3,34 @@
 @{
 }
 
-<script src="~/lib/jquery/dist/jquery.js"></script>
 
-<script type="text/javascript">
-    // Get the start time picker element
-    const startTimePicker = document.getElementById('startTime');
+@section Scripts
+    {
+    <link href="~/lib/jquery/dist/jquery.timepicker.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.timepicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#startTime').timepicker({});
+        });
 
-    // Set the minimum and maximum allowed times
-    const minTime1 = '07:00';
-    const maxTime1 = '15:00';
-    const minTime2 = '18:00';
-    const maxTime2 = '21:30';
-
-    // Set the minimum and maximum times in the start time picker
-    startTimePicker.min = minTime1;
-    startTimePicker.max = maxTime2;
-
-    // Add an event listener to the input event of the start time picker
-    startTimePicker.addEventListener('input', () => {
-        // Get the selected time
-        const selectedTime = startTimePicker.value;
-
-        // Check if the selected time is outside the allowed time range
-        if ((selectedTime < minTime1 || selectedTime > maxTime1) && (selectedTime < minTime2 || selectedTime > maxTime2)) {
-            // Reset the value of the start time picker to the minimum allowed time
-            startTimePicker.value = minTime1;
-            alert("No!");
-        }
-    });
-</script>
+        $('#startTime').timepicker({
+            timeFormat: 'h:mm p',
+            interval: 8,
+            minTime: '10',
+            maxTime: '6:00pm',
+            defaultTime: '11',
+            startTime: '10:00',
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true
+        });
+    </script>
+}
 
 
 <div class="col-md-4">
     <label for="userId" class="form-label">User Id</label>
     <input type="text" class="form-control" id="userId" value="@Model.userId" readonly>
-</div>
-<div class="col-md-4">
-    <label for="memberId" class="form-label"> Id</label>
-    <input type="text" class="form-control" id="memberId" value="@Model.memberId" asp-for="AddReservationRequest.MembersInfoMemberId" readonly>
 </div>
 <div class="col-md-4">
     <label for="memberType" class="form-label">Membership Type</label>
@@ -55,24 +45,6 @@
 <p></p>
 
 
-<form>
-    <div>
-        <label for="appt-time">
-            Choose an appointment time (opening hours 12:00 to 18:00):
-        </label>
-        <input name="sleepStart" type=time min="12:00" step="60"
-      max="18:00">
-        <span class="validity"></span>
-    </div>
-    <div>
-        <input type="submit" value="Submit form" />
-    </div>
-</form>
-
-
-<div>
-    <input type="submit" value="Submit form" />
-</div>
 
 @if ((Model.memberStatus).Equals("Accepted"))
 {
@@ -102,11 +74,11 @@
 
         <div class="col-md-4">
             <label for="startTime" class="form-label">Start Time</label>
-            <input type="text" pattern="0(1:30:00|1:[012][0-9]:[0-5][0-9]|0:[0-5][0-9]:[0-5][0-9])" class="form-control input-md event_date" id="startTime" asp-for="AddReservationRequest.StartTime">
+            <input type="text" class="form-control" id="startTime">
         </div>
         <div class="col-md-4">
             <label for="endTime" class="form-label">End Time</label>
-            <input type="time" min="00:00:00" max="01:30:00" class="form-control input-md event_date" id="endTime" asp-for="AddReservationRequest.EndTime">
+            <input type="time" min="00:00:00" max="01:30:00" class="form-control" id="endTime" asp-for="AddReservationRequest.EndTime">
         </div>
 
         <div class="col-12">

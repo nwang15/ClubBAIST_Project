@@ -1,0 +1,28 @@
+﻿@page
+@model GolfBAIST_Project.Pages.TimeTestingModel
+@{
+}
+
+@section Scripts
+    {
+    <link href="~/lib/jquery/dist/jquery.timepicker.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.timepicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#startTime').timepicker({});
+        });
+
+        $('#startTime').timepicker({
+            timeFormat: 'h:mm p',
+            interval: 8,
+            minTime: '10',
+            maxTime: '6:00pm',
+            defaultTime: '11',
+            startTime: '10:00',
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true
+        });
+    </script>
+}
+<input type="text" class="time-pickable" id="startTime">
