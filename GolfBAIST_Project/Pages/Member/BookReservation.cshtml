@@ -6,14 +6,19 @@
 
 @section Scripts
     {
-    <link href="~/lib/jquery/dist/jquery.timepicker.css" rel="stylesheet" />
+    @*<link href="~/lib/jquery/dist/jquery.timepicker.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.timepicker.js"></script>*@
+    <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/jquery/dist/jquery.timepicker.js"></script>
+    <link href="~/lib/jquery/dist/jquery.timepicker.css" rel="stylesheet" />
     <script type="text/javascript">
+
+        //Gold Start Time
         $(document).ready(function () {
-            $('#startTime').timepicker({});
+            $('#goldStartTime').timepicker({});
         });
 
-        $('#startTime').timepicker({
+        $('#goldStartTime').timepicker({
             timeFormat: 'h:mm p',
             interval: 8,
             minTime: '10',
@@ -24,14 +29,58 @@
             dropdown: true,
             scrollbar: true
         });
+
+        //Bronze Start Time
+        //from 7am - 3pm
+        $(document).ready(function () {
+            $('#bronzeStartTime').timepicker({
+                step: 8,
+                minTime: '10:00am',
+                maxTime: '9:00pm',
+                defaultTime: false,
+                startTime: '10:00',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true,
+                disableTimeRanges: [
+                    ['11:00am', '13:30pm'],
+                    ['4:20pm', '5:00pm']
+                ],
+            });
+        });
+
+        
+      
+        //Bronze End Time
+        //#1 from 7am - 3pm
+        $(document).ready(function () {
+            $('#bronzeEndTime1').timepicker({});
+        });
+        $('#bronzeEndTime1').timepicker({
+            timeFormat: 'h:mm p',
+            interval: 8,
+            minTime: '7',
+            maxTime: '3:00pm',
+            defaultTime: '7',
+            startTime: '7:00',
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true
+        });
+
+
+@*
+        $(document).ready(function () {
+            $('#bronzeStartTime1').click(function () {
+                $('#bronzeEndTime2').attr('disabled', 'disabled');
+            });
+            $('#bronzeStartTime2').click(function () {
+                $('#bronzeEndTime2').removeAttr('disabled');
+            });
+        });*@
     </script>
 }
 
-
-<div class="col-md-4">
-    <label for="userId" class="form-label">User Id</label>
-    <input type="text" class="form-control" id="userId" value="@Model.userId" readonly>
-</div>
 <div class="col-md-4">
     <label for="memberType" class="form-label">Membership Type</label>
     <input type="text" class="form-control" id="memberType" value="@Model.memberType" readonly>
@@ -71,15 +120,41 @@
         </div>
         <p></p>
 
+        @if ((Model.memberType).Equals("Gold"))
+        {
+            <div class="col-md-4">
+                <label for="goldStartTime" class="form-label">Start Time</label>
+                <input type="text" class="form-control" id="goldStartTime" asp-for="AddReservationRequest.StartTime">
+            </div>
+            <div class="col-md-4">
+                <label for="goldEndTime" class="form-label">End Time</label>
+                <input type="text" class="form-control" id="goldEndTime" asp-for="AddReservationRequest.EndTime">
+            </div>
+        }
+        else if ((Model.memberType).Equals("Sliver"))
+        {
+            <div class="col-md-4">
+                <label for="sliverStartTime" class="form-label">Start Time</label>
+                <input type="text" class="form-control" id="sliverStartTime" asp-for="AddReservationRequest.StartTime">
+            </div>
+            <div class="col-md-4">
+                <label for="sliverEndTime" class="form-label">End Time</label>
+                <input type="text" class="form-control" id="sliverEndTime" asp-for="AddReservationRequest.EndTime">
+            </div>
+        }
+        else
+        {
+            <div class="col-md-4">
+                <label for="bronzeStartTime" class="form-label">Start Time1</label>
+                <input type="text" class="form-control" id="bronzeStartTime" asp-for="AddReservationRequest.StartTime">
+            </div>
 
-        <div class="col-md-4">
-            <label for="startTime" class="form-label">Start Time</label>
-            <input type="text" class="form-control" id="startTime">
-        </div>
-        <div class="col-md-4">
-            <label for="endTime" class="form-label">End Time</label>
-            <input type="time" min="00:00:00" max="01:30:00" class="form-control" id="endTime" asp-for="AddReservationRequest.EndTime">
-        </div>
+            <div class="col-md-4">
+                <label for="bronzeEndTime" class="form-label">End Time1</label>
+                <input type="text" class="form-control" id="bronzeEndTime" asp-for="AddReservationRequest.EndTime">
+            </div>
+
+        }
 
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Submit Reservation</button>

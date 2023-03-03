@@ -330,7 +330,6 @@ D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\n
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\BookReservation.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ReviewApplication.cshtml.g.cs
 D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ApplicationInfo.cshtml.g.cs
-D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\GolfBAIST_Project.csproj.AssemblyReference.cache
 C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
 C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
 C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
@@ -345,3 +344,5 @@ C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\ne
 C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ReviewApplication.cshtml.g.cs
 C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\SubmitApplication.cshtml.g.cs
 C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\TimeTesting.cshtml.g.cs
+D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\TimeTesting.cshtml.g.cs
+D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\GolfBAIST_Project.csproj.AssemblyReference.cache
