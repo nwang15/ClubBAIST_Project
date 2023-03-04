@@ -68,8 +68,7 @@ namespace GolfBAIST_Project.Pages.Member
             {
                 reservationDate = AddReservationRequest.reservationDate,
                 Players = AddReservationRequest.Players,
-                StartTime = AddReservationRequest.StartTime,
-                EndTime = AddReservationRequest.EndTime,
+                TimeRange = AddReservationRequest.TimeRange,
                 MembersInfoMemberId = AddReservationRequest.MembersInfoMemberId
                 };
 
