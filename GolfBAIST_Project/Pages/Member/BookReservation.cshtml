@@ -5,41 +5,12 @@
 
 
 @section Scripts{
+
+
     <script type="text/javascript">
 
         var today = new Date().toISOString().split('T')[0];
-        document.getElementsByName("somedate")[0].setAttribute('min', today);
-
-        
-        var memberType = document.getElementById("memberType").value;
-        const date_value = document.getElementById('selectDate');
-
-        var op = document.getElementById("bronzeTimeRange").getElementsByTagName("option");
-
-        date_value.addEventListener('change', function (){
-            var dateValue = date_value.value
-
-            var date = new Date(dateValue);
-            var holiday = new Date ()
-
-            if( date.getDay() == 6 || today.getDay() == 0)
-            {
-                for (var i = 0; i < op.length; i++) {
-                    if (if (memberType == 'Bronze')){
-                        if (op[i].value == "bronzeTime") {
-                        op[i].disabled = true;
-                    }
-                    if (if (memberType == 'Sliver')){
-                        if (op[i].value == "sliverTime") {
-                        op[i].disabled = true;
-                    }
-                    // lowercase comparison for case-insensitivity
-                    
-                        
-                    }
-                }
-            }
-})
+        document.getElementById("selectDate").setAttribute('min', today);
 
     </script>
 }
@@ -57,8 +28,6 @@
 
 <p></p>
 
-
-
 @if ((Model.memberStatus).Equals("Accepted"))
 {
 
@@ -70,8 +39,7 @@
         <p></p>
         <div class="col-md-4">
             <label for="selectDate" class="form-label">Date</label>
-            <input type="date" class="form-control" name="somedate" id="selectDate" asp-for="AddReservationRequest.reservationDate">
-           
+            <input type="date" class="form-control" id="selectDate" asp-for="AddReservationRequest.reservationDate">
         </div>
         <div class="col-md-4">
             <label for="playerNum" class="form-label">Number of Players</label>
@@ -217,31 +185,31 @@
                 <select id="sliverTimeRange" class="form-select" asp-for="AddReservationRequest.TimeRange">
                     <option selected>Choose Your Reservation Time</option>
                     @*  8 *@
-                    <option value="sliverTime">8:00 - 8:08 AM</option>
-                    <option value="sliverTime">8:08 - 8:16 AM </option>
-                    <option value="sliverTime">8:16 - 8:24 AM</option>
-                    <option value="sliverTime">8:24 - 8:30 AM</option>
-                    <option value="sliverTime">8:30 - 8:38 AM </option>
-                    <option value="sliverTime">8:38 - 8:46 AM</option>
-                    <option value="sliverTime">8:46 - 8:54 AM</option>
-                    <option value="sliverTime">8:54 - 9:02 AM</option>
+                    <option value="8:00 - 8:08 AM">8:00 - 8:08 AM</option>
+                    <option value="8:08 - 8:16 AM">8:08 - 8:16 AM </option>
+                    <option value="8:16 - 8:24 AM">8:16 - 8:24 AM</option>
+                    <option value="8:24 - 8:30 AM">8:24 - 8:30 AM</option>
+                    <option value="8:30 - 8:38 AM">8:30 - 8:38 AM </option>
+                    <option value="8:38 - 8:46 AM">8:38 - 8:46 AM</option>
+                    <option value="8:46 - 8:54 AM">8:46 - 8:54 AM</option>
+                    <option value="8:54 - 9:02 AM">8:54 - 9:02 AM</option>
                     @*  9 *@
-                    <option value="sliverTime">9:02 - 9:10 AM</option>
-                    <option value="sliverTime">9:10 - 9:18 AM</option>
-                    <option value="sliverTime">9:18 - 9:26 AM</option>
-                    <option value="sliverTime">9:26 - 9:34 AM</option>
-                    <option value="sliverTime">9:34 - 9:42 AM</option>
-                    <option value="sliverTime">9:42 - 9:50 AM</option>
-                    <option value="sliverTime">9:50 - 9:58 AM</option>
-                    <option value="sliverTime">9:58 - 10:06 AM</option>
+                    <option value="9:02 - 9:10 AM">9:02 - 9:10 AM</option>
+                    <option value="9:10 - 9:18 AM">9:10 - 9:18 AM</option>
+                    <option value="9:18 - 9:26 AM">9:18 - 9:26 AM</option>
+                    <option value="9:26 - 9:34 AM">9:26 - 9:34 AM</option>
+                    <option value="9:34 - 9:42 AM">9:34 - 9:42 AM</option>
+                    <option value="9:42 - 9:50 AM">9:42 - 9:50 AM</option>
+                    <option value="9:50 - 9:58 AM">9:50 - 9:58 AM</option>
+                    <option value="9:58 - 10:06 AM">9:58 - 10:06 AM</option>
                     @*  10 *@
-                    <option value="sliverTime">10:06 - 10:14 AM</option>
-                    <option value="sliverTime">10:14 - 10:22 AM</option>
-                    <option value="sliverTime">10:22 - 10:30 AM</option>
-                    <option value="sliverTime">10:30 - 10:38 AM</option>
-                    <option value="sliverTime">10:38 - 10:46 AM</option>
-                    <option value="sliverTime">10:46 - 10:54 AM</option>
-                    <option value="sliverTime">10:54 - 11:02 AM</option>
+                    <option value="10:06 - 10:14 AM">10:06 - 10:14 AM</option>
+                    <option value="10:14 - 10:22 AMe">10:14 - 10:22 AM</option>
+                    <option value="10:22 - 10:30 AM">10:22 - 10:30 AM</option>
+                    <option value="10:30 - 10:38 AM">10:30 - 10:38 AM</option>
+                    <option value="10:38 - 10:46 AM">10:38 - 10:46 AM</option>
+                    <option value="10:46 - 10:54 AM">10:46 - 10:54 AM</option>
+                    <option value="10:54 - 11:02 AM">10:54 - 11:02 AM</option>
                     @*  11 *@
                     <option>11:02 - 11:10 AM</option>
                     <option>11:10 - 11:18 AM</option>
@@ -321,48 +289,48 @@
                 <select id="bronzeTimeRange" class="form-select" asp-for="AddReservationRequest.TimeRange">
                     <option selected>Choose Your Reservation Time</option>
                     @*  8 *@
-                    <option value="bronzeTime">8:00 - 8:08 AM</option>
-                    <option value="bronzeTime">8:08 - 8:16 AM </option>
-                    <option value="bronzeTime">8:16 - 8:24 AM</option>
-                    <option value="bronzeTime">8:24 - 8:30 AM</option>
-                    <option value="bronzeTime">8:30 - 8:38 AM </option>
-                    <option value="bronzeTime">8:38 - 8:46 AM</option>
-                    <option value="bronzeTime">8:46 - 8:54 AM</option>
-                    <option value="bronzeTime">8:54 - 9:02 AM</option>
+                     <option value="8:00 - 8:08 AM">8:00 - 8:08 AM</option>
+                    <option value="8:08 - 8:16 AM">8:08 - 8:16 AM </option>
+                    <option value="8:16 - 8:24 AM">8:16 - 8:24 AM</option>
+                    <option value="8:24 - 8:30 AM">8:24 - 8:30 AM</option>
+                    <option value="8:30 - 8:38 AM">8:30 - 8:38 AM </option>
+                    <option value="8:38 - 8:46 AM">8:38 - 8:46 AM</option>
+                    <option value="8:46 - 8:54 AM">8:46 - 8:54 AM</option>
+                    <option value="8:54 - 9:02 AM">8:54 - 9:02 AM</option>
                     @*  9 *@
-                    <option value="bronzeTime">9:02 - 9:10 AM</option>
-                    <option value="bronzeTime">9:10 - 9:18 AM</option>
-                    <option value="bronzeTime">9:18 - 9:26 AM</option>
-                    <option value="bronzeTime">9:26 - 9:34 AM</option>
-                    <option value="bronzeTime">9:34 - 9:42 AM</option>
-                    <option value="bronzeTime">9:42 - 9:50 AM</option>
-                    <option value="bronzeTime">9:50 - 9:58 AM</option>
-                    <option value="bronzeTime">9:58 - 10:06 AM</option>
+                    <option value="9:02 - 9:10 AM">9:02 - 9:10 AM</option>
+                    <option value="9:10 - 9:18 AM">9:10 - 9:18 AM</option>
+                    <option value="9:18 - 9:26 AM">9:18 - 9:26 AM</option>
+                    <option value="9:26 - 9:34 AM">9:26 - 9:34 AM</option>
+                    <option value="9:34 - 9:42 AM">9:34 - 9:42 AM</option>
+                    <option value="9:42 - 9:50 AM">9:42 - 9:50 AM</option>
+                    <option value="9:50 - 9:58 AM">9:50 - 9:58 AM</option>
+                    <option value="9:58 - 10:06 AM">9:58 - 10:06 AM</option>
                     @*  10 *@
-                    <option value="bronzeTime">10:06 - 10:14 AM</option>
-                    <option value="bronzeTime">10:14 - 10:22 AM</option>
-                    <option value="bronzeTime">10:22 - 10:30 AM</option>
-                    <option value="bronzeTime">10:30 - 10:38 AM</option>
-                    <option value="bronzeTime">10:38 - 10:46 AM</option>
-                    <option value="bronzeTime">10:46 - 10:54 AM</option>
-                    <option value="bronzeTime">10:54 - 11:02 AM</option>
+                    <option value="10:06 - 10:14 AM">10:06 - 10:14 AM</option>
+                    <option value="10:14 - 10:22 AMe">10:14 - 10:22 AM</option>
+                    <option value="10:22 - 10:30 AM">10:22 - 10:30 AM</option>
+                    <option value="10:30 - 10:38 AM">10:30 - 10:38 AM</option>
+                    <option value="10:38 - 10:46 AM">10:38 - 10:46 AM</option>
+                    <option value="10:46 - 10:54 AM">10:46 - 10:54 AM</option>
+                    <option value="10:54 - 11:02 AM">10:54 - 11:02 AM</option>
                     @*  11 *@
-                    <option value="bronzeTime">11:02 - 11:10 AM</option>
-                    <option value="bronzeTime">11:10 - 11:18 AM</option>
-                    <option value="bronzeTime">11:18 - 11:26 AM</option>
-                    <option value="bronzeTime">11:26 - 11:34 AM</option>
-                    <option value="bronzeTime">11:34 - 11:42 AM</option>
-                    <option value="bronzeTime">11:42 - 11:50 AM</option>
-                    <option value="bronzeTime">11:50 - 11:58 AM</option>
-                    <option value="bronzeTime">11:58 - 12:06 PM</option>
+                    <option value="11:02 - 11:10 AM">11:02 - 11:10 AM</option>
+                    <option value="11:10 - 11:18 AM">11:10 - 11:18 AM</option>
+                    <option value="11:18 - 11:26 AM">11:18 - 11:26 AM</option>
+                    <option value="11:26 - 11:34 AM">11:26 - 11:34 AM</option>
+                    <option value="11:34 - 11:42 AM">11:34 - 11:42 AM</option>
+                    <option value="11:42 - 11:50 AM">11:42 - 11:50 AM</option>
+                    <option value="11:50 - 11:58 AM">11:50 - 11:58 AM</option>
+                    <option value="11:58 - 12:06 PM">11:58 - 12:06 PM</option>
                     @*  12 *@
-                    <option value="bronzeTime">12:06 - 12:14 PM</option>
-                    <option value="bronzeTime">12:14 - 12:22 PM</option>
-                    <option value="bronzeTime">12:22 - 12:30 PM</option>
-                    <option value="bronzeTime">12:30 - 12:38 PM</option>
-                    <option value="bronzeTime">12:38 - 12:46 PM</option>
-                    <option value="bronzeTime">12:46 - 12:54 PM</option>
-                    <option value="bronzeTime">12:54 - 13:02 PM</option>
+                    <option value="12:06 - 12:14 PM">12:06 - 12:14 PM</option>
+                    <option value="12:14 - 12:22 PM">12:14 - 12:22 PM</option>
+                    <option value="12:22 - 12:30 PM">12:22 - 12:30 PM</option>
+                    <option value="12:30 - 12:38 PM">12:30 - 12:38 PM</option>
+                    <option value="12:38 - 12:46 PM">12:38 - 12:46 PM</option>
+                    <option value="12:46 - 12:54 PM">12:46 - 12:54 PM</option>
+                    <option value="12:54 - 13:02 PM">12:54 - 13:02 PM</option>
                     @*  13 *@
                     <option>13:02 - 13:10 PM</option>
                     <option>13:10 - 13:18 PM</option>

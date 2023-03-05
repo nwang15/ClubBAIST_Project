@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GolfBAIST_Project.Data;
 using GolfBAIST_Project.Models.Domain;
 using GolfBAIST_Project.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -18,10 +20,12 @@ namespace GolfBAIST_Project.Pages.Admin
         public ReviewAllReservationsModel(IMemberReservationRepository memberReservationRepository)
         {
             this.memberReservationRepository = memberReservationRepository;
+         
         }
         public async Task OnGet()
         {
-            //Reservations = (await memberReservationRepository.GetAllAsync())?.ToList();
+
+            Reservations = (await memberReservationRepository.GetAllAsync())?.ToList();
         }
     }
 }

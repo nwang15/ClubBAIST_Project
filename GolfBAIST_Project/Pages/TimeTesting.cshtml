@@ -2,12 +2,17 @@
 @model GolfBAIST_Project.Pages.TimeTestingModel
 @{
 }
+<link href="~/lib/jqueryui/themes/redmond/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/lib/jqueryui/themes/redmond/jquery-ui.css" rel="stylesheet" />
+@section Scripts
+{
+    <script src="~/lib/jqueryui/jquery-ui.min.js"></script>
 
+    <script type="text/javascript">
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+}
 
-for (var i = 0; i < op.length; i++) {
-
-                    if (op[i].value == "bronzeTime") {
-                        op[i].disabled = true;
-
-                    }
-                }
+<input type="text" id="datepicker" />

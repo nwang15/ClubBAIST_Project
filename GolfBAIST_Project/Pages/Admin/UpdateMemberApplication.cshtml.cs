@@ -40,7 +40,7 @@ namespace GolfBAIST_Project.Pages.Admin
 
             if (deleted)
             {
-                return RedirectToPage("/ManagerApplication/ReviewApplication");
+                return RedirectToPage("/Admin/ReviewAllApplications");
             }
             return Page();
         }

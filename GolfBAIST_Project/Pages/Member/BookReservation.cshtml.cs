@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using GolfBAIST_Project.Data;
@@ -23,7 +24,6 @@ namespace GolfBAIST_Project.Pages.Member
         public string userId { get; set; }
         public string memberStatus { get; set; }
         public string memberType { get; set; }
-
         public int ApplicationId { get; set; }
         [BindProperty]
         public int memberId { get; set; }
@@ -36,6 +36,7 @@ namespace GolfBAIST_Project.Pages.Member
 
         [BindProperty]
         public AddReservation AddReservationRequest { get; set; }
+
 
         public BookReservationModel(IMemberReservationRepository memberReservationRepository,
                                     ApplicationDbContext applicationDbContext, 
@@ -56,8 +57,6 @@ namespace GolfBAIST_Project.Pages.Member
 
             MembersInfo = _applicationDbContext.MembersInfos.Where(a => a.MemberApplicationApplicationId.Equals(ApplicationId)).FirstOrDefault();
             memberId = MembersInfo.MemberId;
-
-
 
         }
 

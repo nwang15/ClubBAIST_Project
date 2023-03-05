@@ -10,6 +10,8 @@ namespace GolfBAIST_Project.Models.ViewModels
         public int MembersInfoMemberId { get; set; }
         public DateTime reservationDate { get; set; }
         public string TimeRange { get; set; }
+        public DateTime? StartTime { get; set; }
+        public DateTime? EndTime { get; set; }
         public int Players { get; set; }
     }
 }

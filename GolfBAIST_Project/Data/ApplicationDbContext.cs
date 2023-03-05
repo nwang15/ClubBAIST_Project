@@ -14,7 +14,7 @@ namespace GolfBAIST_Project.Data
     {
 
         public string NickName { get; set; }
-            
+
     }
     public class ApplicationDbContext : IdentityDbContext <ApplicationUser>
     {
