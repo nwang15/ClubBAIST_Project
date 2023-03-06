@@ -5,12 +5,13 @@
 
 
 
-<div class="col-md-4">
-    <input type="text" class="form-control" id="userId" value="@Model.memberId" readonly>
-</div>
 
 
 <div class="container">
+    <div class="col-md-4">
+        <input type="text" class="form-control" id="userId" value="@Model.userId" readonly>
+    </div>
+
     <table class="table">
         <thead>
             <tr>
@@ -21,15 +22,24 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var reservation in Model.reservations)
+            @if (Model.MemberApplication == null)
             {
-                <tr>
-                    <td>@reservation.ReservationId</td>
-                    <td>@reservation.TimeRange</td>
-                    <td>@reservation.Players</td>
-                    <td><a href="/Member/ReservationInfo/@reservation.ReservationId">View</a></td>
-                </tr>
+                @Model.message
             }
+            else
+            {
+                @foreach (var reservation in Model.reservations)
+                {
+                    <tr>
+                        <td>@reservation.ReservationId</td>
+                        <td>@reservation.TimeRange</td>
+                        <td>@reservation.Players</td>
+                        <td><a href="/Member/ReservationInfo/@reservation.ReservationId">View</a></td>
+                    </tr>
+                }
+            }
+
+
         </tbody>
     </table>
 </div>

@@ -33,6 +33,7 @@ namespace GolfBAIST_Project.Pages.Member
         {
             userId = _userManager.GetUserId(HttpContext.User);
             MemberApplications =  _applicationDbContext.MemberApplications.Where(x => x.Id.Equals(userId)).ToList();
+
         }
     }
 }
