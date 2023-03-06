@@ -6,15 +6,57 @@
 
 @section Scripts{
 
-
     <script type="text/javascript">
 
         var today = new Date().toISOString().split('T')[0];
         document.getElementById("selectDate").setAttribute('min', today);
+        const date_value = document.getElementById('selectDate');
+        var op = document.getElementById("timeRange").getElementsByTagName("option");
+        var memberType = document.getElementById("memberType").value;
 
+        document.getElementById("timeRange").disabled = true;
+
+        date_value.addEventListener('change', function () {
+
+            var dateValue = date_value.value
+            var date = new Date(dateValue);
+            var holiday = new Date()
+
+            if (date.getDay() == 6 || today.getDay() == 0) {
+
+                for (var i = 0; i < op.length; i++) {
+                    if (op[i].value == "8:00 - 8:08 AM" || op[i].value == "8:08 - 8:16 AM" || op[i].value == "8:16 - 8:24 AM" || 
+                        op[i].value == "8:24 - 8:30 AM" || op[i].value == "8:30 - 8:38 AM" || op[i].value == "8:38 - 8:46 AM" ||
+                        op[i].value == "8:46 - 8:54 AM" || op[i].value == "8:54 - 9:02 AM" || op[i].value == "9:02 - 9:10 AM" ||
+                        op[i].value == "9:10 - 9:18 AM" || op[i].value == "9:18 - 9:26 AM" || op[i].value == "9:26 - 9:34 AM" ||
+                        op[i].value == "9:34 - 9:42 AM" || op[i].value == "9:42 - 9:50 AM" || op[i].value == "9:50 - 9:58 AM" ||
+                        op[i].value == "9:58 - 10:06 AM" || op[i].value == "10:06 - 10:14 AM" || op[i].value == "10:14 - 10:22 AM" ||
+                        op[i].value == "10:22 - 10:30 AM" || op[i].value == "10:30 - 10:38 AM" || op[i].value == "10:38 - 10:46 AM" ||
+                        op[i].value == "10:46 - 10:54 AM" || op[i].value == "10:54 - 11:02 AM")
+                        {
+                            op[i].disabled = true;
+                            document.getElementById("timeRange").disabled = false;
+                        }
+
+                    if (memberType == 'Bronze') {
+                        if (op[i].value == "11:02 - 11:10 AM" || op[i].value == "11:10 - 11:18 AM" || op[i].value == "11:18 - 11:26 AM" ||
+                            op[i].value == "11:26 - 11:34 AM" || op[i].value == "11:34 - 11:42 AM" || op[i].value == "11:42 - 11:50 AM" ||
+                            op[i].value == "11:50 - 11:58 AM" || op[i].value == "11:58 - 12:06 PM" || op[i].value == "12:06 - 12:14 PM" ||
+                            op[i].value == "12:14 - 12:22 PM" || op[i].value == "12:22 - 12:30 PM" || op[i].value == "12:30 - 12:38 PM" ||
+                            op[i].value == "12:38 - 12:46 PM" || op[i].value == "12:46 - 12:54 PM" || op[i].value == "12:54 - 13:02 PM") {
+                            op[i].disabled = true;
+                        }
+                    }
+
+
+                }
+            }
+    })
+
+       
     </script>
 }
-    <p id="demo"></p>
+
 
 <div class="col-md-4">
     <label for="memberType" class="form-label">Membership Type</label>
@@ -39,7 +81,7 @@
         <p></p>
         <div class="col-md-4">
             <label for="selectDate" class="form-label">Date</label>
-            <input type="date" class="form-control" id="selectDate" asp-for="AddReservationRequest.reservationDate">
+            <input type="date" class="form-control" id="selectDate" asp-for="AddReservationRequest.reservationDate"/>
         </div>
         <div class="col-md-4">
             <label for="playerNum" class="form-label">Number of Players</label>
@@ -54,12 +96,12 @@
         <p></p>
         @if ((Model.memberType).Equals("Gold"))
         {
-             <div class="col-md-4">
-            <label for="bronzeTimeRange" class="form-label">Reservation Time</label>
-            <select id="bronzeTimeRange" class="form-select" asp-for="AddReservationRequest.TimeRange">
+            <div class="col-md-4">
+            <label for="timeRange" class="form-label">Reservation Time</label>
+            <select id="timeRange" class="form-select" asp-for="AddReservationRequest.TimeRange" >
                     <option selected>Choose Your Reservation Time</option>
                             @*  8 *@
-                <option value="bronzeTime1">8:00 - 8:08 AM</option>
+                <option >8:00 - 8:08 AM</option>
                 <option>8:08 - 8:16 AM </option>
                 <option>8:16 - 8:24 AM</option>
                 <option>8:24 - 8:30 AM</option>
@@ -181,8 +223,8 @@
         if ((Model.memberType).Equals("Sliver"))
         {
             <div class="col-md-4">
-                <label for="sliverTimeRange" class="form-label">Reservation Time</label>
-                <select id="sliverTimeRange" class="form-select" asp-for="AddReservationRequest.TimeRange">
+                <label for="timeRange" class="form-label">Reservation Time</label>
+                <select id="timeRange" class="form-select" asp-for="AddReservationRequest.TimeRange">
                     <option selected>Choose Your Reservation Time</option>
                     @*  8 *@
                     <option value="8:00 - 8:08 AM">8:00 - 8:08 AM</option>
@@ -204,7 +246,7 @@
                     <option value="9:58 - 10:06 AM">9:58 - 10:06 AM</option>
                     @*  10 *@
                     <option value="10:06 - 10:14 AM">10:06 - 10:14 AM</option>
-                    <option value="10:14 - 10:22 AMe">10:14 - 10:22 AM</option>
+                    <option value="10:14 - 10:22 AM">10:14 - 10:22 AM</option>
                     <option value="10:22 - 10:30 AM">10:22 - 10:30 AM</option>
                     <option value="10:30 - 10:38 AM">10:30 - 10:38 AM</option>
                     <option value="10:38 - 10:46 AM">10:38 - 10:46 AM</option>
@@ -285,8 +327,8 @@
         else
         {
             <div class="col-md-4">
-                <label for="bronzeTimeRange" class="form-label">Reservation Time</label>
-                <select id="bronzeTimeRange" class="form-select" asp-for="AddReservationRequest.TimeRange">
+                <label for="timeRange" class="form-label">Reservation Time</label>
+                <select id="timeRange" class="form-select" asp-for="AddReservationRequest.TimeRange">
                     <option selected>Choose Your Reservation Time</option>
                     @*  8 *@
                      <option value="8:00 - 8:08 AM">8:00 - 8:08 AM</option>
@@ -308,7 +350,7 @@
                     <option value="9:58 - 10:06 AM">9:58 - 10:06 AM</option>
                     @*  10 *@
                     <option value="10:06 - 10:14 AM">10:06 - 10:14 AM</option>
-                    <option value="10:14 - 10:22 AMe">10:14 - 10:22 AM</option>
+                    <option value="10:14 - 10:22 AM">10:14 - 10:22 AM</option>
                     <option value="10:22 - 10:30 AM">10:22 - 10:30 AM</option>
                     <option value="10:30 - 10:38 AM">10:30 - 10:38 AM</option>
                     <option value="10:38 - 10:46 AM">10:38 - 10:46 AM</option>

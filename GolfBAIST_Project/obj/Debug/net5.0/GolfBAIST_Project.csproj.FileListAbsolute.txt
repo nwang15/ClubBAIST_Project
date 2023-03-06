@@ -350,3 +350,7 @@ C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\ne
 C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ReservationInfo.cshtml.g.cs
 C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Admin\UpdateMemberReservation.cshtml.g.cs
 C:\Users\ACChi\Documents\GitHub\ClubBAIST_Project\GolfBAIST_Project\bin\Debug\net5.0\libman.json
+D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\bin\Debug\net5.0\libman.json
+D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Admin\UpdateMemberReservation.cshtml.g.cs
+D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ReservationInfo.cshtml.g.cs
+D:\WEBDEV FILES\Anna_ProjectFile\ClubBAIST_Project\GolfBAIST_Project\obj\Debug\net5.0\Razor\Pages\Member\ReviewReservation.cshtml.g.cs
