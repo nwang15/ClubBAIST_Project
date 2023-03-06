@@ -26,6 +26,19 @@ namespace GolfBAIST_Project.Repositories
             return reservation;
         }
 
+        public async Task<bool> DeleteAsync(int reservationId)
+        {
+            var existingReservation = await applicationDbContext.Reservations.FindAsync(reservationId);
+
+            if (existingReservation != null)
+            {
+                applicationDbContext.Reservations.Remove(existingReservation);
+                await applicationDbContext.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
+
         public async Task<IEnumerable<Reservation>> GetAllAsync()
         {
             return await applicationDbContext.Reservations.ToListAsync();

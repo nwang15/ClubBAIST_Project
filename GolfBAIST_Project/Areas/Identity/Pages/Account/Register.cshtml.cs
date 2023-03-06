@@ -99,21 +99,22 @@ namespace GolfBAIST_Project.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-
                     //Customize Coding By Anna - Start
 
-                    if (Regex.IsMatch(Input.Email,regex))
+                    if (Regex.IsMatch(Input.Email, regex))
                     {
                         await _roleManager.CreateAsync(new IdentityRole(AdminEndUser));
+                        await _userManager.AddToRoleAsync(user, AdminEndUser);
                     }
                     else
                     {
                         await _roleManager.CreateAsync(new IdentityRole(MemberEndUser));
+                        await _userManager.AddToRoleAsync(user, MemberEndUser);
                     }
 
-                      
-                  
-                    //await _userManager.AddToRoleAsync(user, AdminEndUser);
+                    // await _userManager.AddToRoleAsync(Input.Email, Input.Nickname);
+
+                    //await _userManager.AddToRoleAsync(user, MemberEndUser);
 
                     //End
                     _logger.LogInformation("User created a new account with password.");

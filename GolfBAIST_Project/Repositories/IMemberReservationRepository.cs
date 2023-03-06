@@ -13,6 +13,7 @@ namespace GolfBAIST_Project.Repositories
         Task<Reservation> AddAsync(Reservation reservation);
         Task<Reservation> GetAsync(int reservationId);
         Task<Reservation> UpdateAsync(Reservation reservation);
+        Task<bool> DeleteAsync(int reservationId);
 
 
     }

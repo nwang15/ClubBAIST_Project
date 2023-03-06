@@ -62,5 +62,15 @@ namespace GolfBAIST_Project.Pages.Admin
 
             return Page();
         }
+        public async Task<IActionResult> OnPostDelete()
+        {
+            var deleted = await memberReservationRepository.DeleteAsync(reservation.ReservationId);
+
+            if (deleted)
+            {
+                return RedirectToPage("/Admin/ReviewAllReservations");
+            }
+            return Page();
+        }
     }
 }
