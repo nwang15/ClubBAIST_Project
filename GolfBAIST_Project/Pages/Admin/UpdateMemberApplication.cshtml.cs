@@ -31,7 +31,7 @@ namespace GolfBAIST_Project.Pages.Admin
             await memberApplicationRepository.UpdateAsync(MemberApplications);
             // ViewData["MessageDescription"] = "Record was successfully saved!";
 
-            return Page();
+            return RedirectToPage("/Admin/ReviewAllApplications");
         }
 
         public async Task<IActionResult> OnPostDelete()

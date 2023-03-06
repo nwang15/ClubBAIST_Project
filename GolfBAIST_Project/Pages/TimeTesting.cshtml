@@ -2,17 +2,32 @@
 @model GolfBAIST_Project.Pages.TimeTestingModel
 @{
 }
-<link href="~/lib/jqueryui/themes/redmond/jquery-ui.min.css" rel="stylesheet" />
-<link href="~/lib/jqueryui/themes/redmond/jquery-ui.css" rel="stylesheet" />
 @section Scripts
 {
-    <script src="~/lib/jqueryui/jquery-ui.min.js"></script>
 
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
     <script type="text/javascript">
-        $(function () {
-            $("#datepicker").datepicker();
+        $(document).ready(function () {
+            $("#search").on("keyup", function () {
+                $('.panel-flex').hide();
+                var searchTerm = $(this).val().toLowerCase();
+                $('.panel-flex').filter(function () {
+                    return $(this).find("h4").text().toLowerCase().indexOf(searchTerm) > -1;
+                }).show();
+            });
         });
     </script>
 }
 
-<input type="text" id="datepicker" />
+    <input id="search" type="text">
+
+    <div class="panel-flex">
+        <h4>Title One</h4>
+    </div>
+    <div class="panel-flex">
+        <h4>Title Two</h4>
+    </div>
+    <div class="panel-flex">
+        <h4>Title Three</h4>
+    </div>

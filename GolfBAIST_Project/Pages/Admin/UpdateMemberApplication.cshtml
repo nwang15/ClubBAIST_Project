@@ -63,7 +63,16 @@
         <label for="personalProvince" class="form-label">Province</label>
         <select id="personalProvince" class="form-select" asp-for="MemberApplications.MemberProvince">
             <option selected>Choose...</option>
-            <option>Alberta</option>
+                <option>Alberta</option>
+                <option>British Columbia</option>
+                <option>Manitoba</option>
+                <option>New Brunswick</option>
+                <option>Newfoundland and Labrador</option>
+                <option>Nova Scotia</option>
+                <option>Ontario</option>
+                <option>Prince Edward Island</option>
+                <option>Quebec</option>
+                <option>Saskatchewan</option>
         </select>
     </div>
     <div class="col-md-2">
@@ -105,6 +114,15 @@
         <select id="companyProvince" class="form-select" asp-for="MemberApplications.CompanyProvince">
             <option selected>Choose...</option>
             <option>Alberta</option>
+                <option>British Columbia</option>
+                <option>Manitoba</option>
+                <option>New Brunswick</option>
+                <option>Newfoundland and Labrador</option>
+                <option>Nova Scotia</option>
+                <option>Ontario</option>
+                <option>Prince Edward Island</option>
+                <option>Quebec</option>
+                <option>Saskatchewan</option>
         </select>
     </div>
     <div class="col-md-2">
@@ -150,11 +168,10 @@
         <input type="date" class="form-control" id="secondShareHolderDate" asp-for="MemberApplications.SecondShareholderSignDate">
     </div>
     <p></p>
-    <p>PRIVACY INFORMATION</p>
-
 
     <div class="col-12">
-        <button type="submit" class="btn btn-primary" asp-page-handler="Edit">Submit Application</button>
+        <button type="submit" class="btn btn-primary" asp-page-handler="Edit">Update Application</button>
+            <button type="submit" class="btn btn-danger" asp-page-handler="Delete">Remove Application From System</button>
     </div>
 
 

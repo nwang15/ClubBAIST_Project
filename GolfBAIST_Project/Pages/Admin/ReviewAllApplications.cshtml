@@ -2,19 +2,37 @@
 @model GolfBAIST_Project.Pages.Admin.ReviewAllApplicationsModel
 @{
 }
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#search").on("keyup", function () {
+                $('.panel-flex').hide();
+                var searchTerm = $(this).val().toLowerCase();
+                $('.panel-flex').filter(function () {
+                    return $(this).find("td").text().toLowerCase().indexOf(searchTerm) > -1;
+                }).show();
+            });
+        });
+    </script>
+}
 <div class="container">
+        <input id="search" type="text" placeholder="Search">
     <table class="table">
         <thead>
             <tr>
                 <td>Application Id</td>
                 <td>Name</td>
+                <td>Application Status</td>
                 <td></td>
             </tr>
         </thead>
         <tbody>
             @foreach (var application in Model.MemberApplications)
             {
-            <tr>
+             <tr class="panel-flex">
                 <td>@application.ApplicationId</td>
                 <td>@application.MemberLastName, @application.MemberFirstName</td>
                 <td>@application.ApplicationStatus</td>

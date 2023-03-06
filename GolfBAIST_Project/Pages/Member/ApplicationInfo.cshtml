@@ -47,7 +47,7 @@
         </div>
         <div class="col-md-4">
             <label for="personalProvince" class="form-label">Province</label>
-            <input type="text" class="form-control" id="personalProvince" asp-for="MemberApplications.ApplicationId" readonly>
+            <input type="text" class="form-control" id="personalProvince" asp-for="MemberApplications.MemberProvince" readonly>
         </div>
         <div class="col-md-2">
             <label for="personalPostalCode" class="form-label">Postal Code</label>
@@ -85,10 +85,7 @@
         </div>
         <div class="col-md-4">
             <label for="companyProvince" class="form-label">Province</label>
-            <select id="companyProvince" class="form-select" asp-for="MemberApplications.CompanyProvince" readonly>
-                <option selected>Choose...</option>
-                <option>Alberta</option>
-            </select>
+        <input type="text" class="form-control" id="companyProvince" asp-for="MemberApplications.CompanyProvince" readonly>
         </div>
         <div class="col-md-2">
             <label for="companyPostalCode" class="form-label">Postal Code</label>
@@ -133,8 +130,6 @@
             <input type="date" class="form-control" id="secondShareHolderDate" asp-for="MemberApplications.SecondShareholderSignDate" readonly>
         </div>
         <p></p>
-        <p>PRIVACY INFORMATION</p>
-
 
 
     <div class="col-12">

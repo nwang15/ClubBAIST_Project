@@ -75,7 +75,7 @@ namespace GolfBAIST_Project.Pages.Member
           
 
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Member/ReviewReservation");
         }
     }
 }
