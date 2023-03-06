@@ -10,6 +10,7 @@
 
         var today = new Date().toISOString().split('T')[0];
         document.getElementById("selectDate").setAttribute('min', today);
+
         const date_value = document.getElementById('selectDate');
         var op = document.getElementById("timeRange").getElementsByTagName("option");
         var memberType = document.getElementById("memberType").value;
@@ -21,10 +22,11 @@
             var dateValue = date_value.value
             var date = new Date(dateValue);
             var holiday = new Date()
-
-            if (date.getDay() == 6 || today.getDay() == 0) {
+            //alert(date.getDay())
+            if (date.getDay() == 5 || date.getDay() == 6) {
 
                 for (var i = 0; i < op.length; i++) {
+
                     if (op[i].value == "8:00 - 8:08 AM" || op[i].value == "8:08 - 8:16 AM" || op[i].value == "8:16 - 8:24 AM" || 
                         op[i].value == "8:24 - 8:30 AM" || op[i].value == "8:30 - 8:38 AM" || op[i].value == "8:38 - 8:46 AM" ||
                         op[i].value == "8:46 - 8:54 AM" || op[i].value == "8:54 - 9:02 AM" || op[i].value == "9:02 - 9:10 AM" ||
@@ -35,7 +37,7 @@
                         op[i].value == "10:46 - 10:54 AM" || op[i].value == "10:54 - 11:02 AM")
                         {
                             op[i].disabled = true;
-                            document.getElementById("timeRange").disabled = false;
+                            document.getElementById("timeRange").disabled = false;      
                         }
 
                     if (memberType == 'Bronze') {
@@ -44,11 +46,14 @@
                             op[i].value == "11:50 - 11:58 AM" || op[i].value == "11:58 - 12:06 PM" || op[i].value == "12:06 - 12:14 PM" ||
                             op[i].value == "12:14 - 12:22 PM" || op[i].value == "12:22 - 12:30 PM" || op[i].value == "12:30 - 12:38 PM" ||
                             op[i].value == "12:38 - 12:46 PM" || op[i].value == "12:46 - 12:54 PM" || op[i].value == "12:54 - 13:02 PM") {
+
                             op[i].disabled = true;
+                            document.getElementById("timeRange").disabled = false;
                         }
                     }
 
-
+                   
+                    
                 }
             }
     })
