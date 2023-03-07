@@ -42,7 +42,7 @@ namespace GolfBAIST_Project.Pages.Admin
         }
         public async Task OnGet(int reservationId)
         {
-            userId = _userManager.GetUserId(HttpContext.User);
+           /* userId = _userManager.GetUserId(HttpContext.User);
             MemberApplication = _applicationDbContext.MemberApplications.Where(x => x.Id.Equals(userId)).FirstOrDefault();
             memberFirstNamme = MemberApplication.MemberFirstName;
             memberLastName = MemberApplication.MemberLastName;
@@ -50,9 +50,18 @@ namespace GolfBAIST_Project.Pages.Admin
             ApplicationId = MemberApplication.ApplicationId;
             
             MembersInfo = _applicationDbContext.MembersInfos.Where(a => a.MemberApplicationApplicationId.Equals(ApplicationId)).FirstOrDefault();
-            memberId = MembersInfo.MemberId;
+            memberId = MembersInfo.MemberId;*/
 
             reservation = await memberReservationRepository.GetAsync(reservationId);
+            MembersInfo = _applicationDbContext.MembersInfos.Where(a => a.MemberId.Equals(reservation.MembersInfoMemberId)).FirstOrDefault();
+            memberFirstNamme = MembersInfo.MemberFirstName;
+            memberLastName = MembersInfo.MemberLastName;
+            //ApplicationId = ;
+
+            MemberApplication = _applicationDbContext.MemberApplications.Where(x => x.ApplicationId.Equals(MembersInfo.MemberApplicationApplicationId)).FirstOrDefault();
+            memberType = MemberApplication.MembershipType;
+
+
         }
 
         public async Task<IActionResult> OnPostEdit()

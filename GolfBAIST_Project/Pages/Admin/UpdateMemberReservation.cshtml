@@ -2,7 +2,7 @@
 @model GolfBAIST_Project.Pages.Admin.UpdateMemberReservationModel
 @{
 }
-
+@**@
  <div class="col-md-4">
         <label for="memberType" class="form-label">Membership Type</label>
         <input type="text" class="form-control" id="memberType" value="@Model.memberType" readonly>
@@ -18,24 +18,24 @@
     </div>
 
 
-    <form class="row g-3" method="post">
+    <form method="post">
 
         <div class="col-md-4">
             <label for="memberId" class="form-label">Member ID</label>
-            <input type="text" class="form-control" id="memberId" value="@Model.memberId" asp-for="reservation.MembersInfoMemberId" readonly>
+            <input type="text" class="form-control" id="memberId" asp-for="reservation.MembersInfoMemberId" readonly>
         </div>
-    <div class="col-md-4">
+    <div class="form-group col-md-4">
             <label for="reservationId" class="form-label">Reservation Id</label>
             <input type="text" class="form-control" id="reservationId"  asp-for="reservation.ReservationId" readonly>
     </div>
-        <div class="col-md-4">
+        <div class="form-group col-md-4">
             <label for="selectDate" class="form-label">Date</label>
             <input type="date" class="form-control" name="somedate" id="selectDate" asp-for="reservation.reservationDate">
            
         </div>
-        <div class="col-md-4">
+        <div class="form-group col-md-4">
             <label for="playerNum" class="form-label">Number of Players</label>
-            <select id="playerNum" class="form-select" asp-for="reservation.Players">
+            <select id="playerNum" class="form-control" asp-for="reservation.Players">
                 <option selected>Choose...</option>
                 <option>1</option>
                 <option>2</option>
@@ -46,9 +46,9 @@
         <p></p>
     @if (Model.memberType=="Gold")
     {
-        <div class="col-md-4">
+        <div class="form-group col-md-4">
             <label for="bronzeTimeRange" class="form-label">Reservation Time</label>
-            <select id="bronzeTimeRange" class="form-select" asp-for="reservation.TimeRange">
+            <select id="bronzeTimeRange" class="form-control" asp-for="reservation.TimeRange">
                 <option selected>Choose Your Reservation Time</option>
                 @*  8 *@
                 <option value="bronzeTime1">8:00 - 8:08 AM</option>
@@ -172,9 +172,9 @@
     else
     if (Model.memberType=="Sliver")
     {
-        <div class="col-md-4">
+        <div class="form-group col-md-4">
             <label for="sliverTimeRange" class="form-label">Reservation Time</label>
-            <select id="sliverTimeRange" class="form-select" asp-for="reservation.TimeRange">
+            <select id="sliverTimeRange" class="form-control" asp-for="reservation.TimeRange">
                 <option selected>Choose Your Reservation Time</option>
                 @*  8 *@
                 <option value="sliverTime">8:00 - 8:08 AM</option>
@@ -276,9 +276,9 @@
     }
     else if (Model.memberType=="Bronze")
     {
-        <div class="col-md-4">
+        <div class="form-group col-md-4">
             <label for="bronzeTimeRange" class="form-label">Reservation Time</label>
-            <select id="bronzeTimeRange" class="form-select" asp-for="reservation.TimeRange">
+            <select id="bronzeTimeRange" class="form-control" asp-for="reservation.TimeRange">
                 <option selected>Choose Your Reservation Time</option>
                 @*  8 *@
                 <option value="bronzeTime">8:00 - 8:08 AM</option>
@@ -376,8 +376,7 @@
     }
 
 
-    <div class="col-12">
         <button type="submit" class="btn btn-primary" asp-page-handler="Edit">Update Reservation</button>
-        <button type="submit" class="btn btn-danger" asp-page-handler="Delete">Remove Reservation From System</button>
-    </div>
-        </form>
+        <button type="submit" class="btn btn-danger" asp-page-handler="Delete">Remove Reservation From System</button>  
+
+    </form>

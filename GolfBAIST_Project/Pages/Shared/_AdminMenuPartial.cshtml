@@ -6,23 +6,20 @@
 
 @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
 {
-  @*  <li class="nav-item dropdown show">
-        <a class="dropdown-toggle nav-link text-dark" href="#" data-toggle="dropdown">Admin</a>
-    </li>
-*@
-<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-    <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                ADMIN
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                <li><a class="dropdown-item" href="/Admin/ReviewAllApplications">Review All Applications</a></li>
-                <li><a class="dropdown-item" href="/Admin/ReviewAllReservations">Review All Reservations</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
+
+
+    <div class="dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ADMIN
+        </a>
+        <div class="dropdown-menu dropdown-menu-dark " aria-labelledby="dropdownMenuButton">
+            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/ReviewAllApplications">Review All Applications</a>
+            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/ReviewAllReservations">Review All Reservationsn</a>
+        </div>
+    </div>
+
+
+   
 }
 
 

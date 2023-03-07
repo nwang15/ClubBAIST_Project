@@ -51,13 +51,20 @@ namespace GolfBAIST_Project.Pages.Member
         {
             userId = _userManager.GetUserId(HttpContext.User);
             MemberApplication = _applicationDbContext.MemberApplications.Where(x => x.Id.Equals(userId)).FirstOrDefault();
-            memberStatus = MemberApplication.ApplicationStatus;
-            memberType = MemberApplication.MembershipType;
-            ApplicationId = MemberApplication.ApplicationId;
 
-            MembersInfo = _applicationDbContext.MembersInfos.Where(a => a.MemberApplicationApplicationId.Equals(ApplicationId)).FirstOrDefault();
-            memberId = MembersInfo.MemberId;
+            if (MemberApplication == null)
+            {
+                message = "You need to submit your membership application first";
+            }
+            else
+            {
+                memberStatus = MemberApplication.ApplicationStatus;
+                memberType = MemberApplication.MembershipType;
+                ApplicationId = MemberApplication.ApplicationId;
 
+                MembersInfo = _applicationDbContext.MembersInfos.Where(a => a.MemberApplicationApplicationId.Equals(ApplicationId)).FirstOrDefault();
+                memberId = MembersInfo.MemberId;
+            }
         }
 
         public async Task<IActionResult> OnPost()

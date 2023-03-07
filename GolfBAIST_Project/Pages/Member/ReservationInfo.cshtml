@@ -3,23 +3,26 @@
 @{
 }
 
-<form class="row g-3" method="post">
-        <div class="col-md-4">
-            <label for="reservationId" class="form-label"> Id</label>
-        <input type="text" class="form-control" id="reservationId" asp-for="Reservation.ReservationId" readonly>
+<form method="post">
+
+        <div class="form-group col-md-4">
+            <label for="reservationId" class="form-label">Reservation Id</label>
+            <input type="text" class="form-control" id="reservationId" asp-for="Reservation.ReservationId" readonly>
         </div>
         <p></p>
-        <div class="col-md-4">
-            <label for="selectDate" class="form-label">Date</label>
-            <input type="text" class="form-control" id="selectDate" asp-for="Reservation.reservationDate">           
+        <div class="form-group col-md-4">
+            <label for="selectDate" class="form-label">Reservation Date</label>
+            <input type="text" class="form-control" id="selectDate" asp-for="Reservation.reservationDate" readonly>
         </div>
-        <div class="col-md-4">
-            <label for="selectTime" class="form-label">Time</label>
-        <input type="text" class="form-control" id="selectTime" asp-for="Reservation.TimeRange">
+
+        <div class="form-group col-md-4">
+            <label for="selectTime" class="form-label">Reservation Time</label>
+            <input type="text" class="form-control" id="selectTime" asp-for="Reservation.TimeRange" readonly>
         </div>
-        <div class="col-md-4">
+        <div class="form-group col-md-4">
             <label for="c" class="form-label">Number of Players</label>
-        <input type="text" class="form-control" id="playerNum" asp-for="Reservation.Players" readonly>
+            <input type="text" class="form-control" id="playerNum" asp-for="Reservation.Players" readonly>
         </div>
+
 
 </form>
