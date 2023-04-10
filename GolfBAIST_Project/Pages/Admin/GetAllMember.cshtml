@@ -1,0 +1,29 @@
+﻿@page
+@model GolfBAIST_Project.Pages.Admin.GetAllMemberModel
+@{
+}
+
+<div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Member Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">View Member</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var members in Model.membersInfos)
+                {
+                    <tr class="panel-flex">
+                        <td>@members.MemberId</td>
+                        <td>@members.MemberLastName, @members.MemberFirstName</td>
+                        <td><a href="/Admin/AdminAddScore/@members.MemberId">Add Score For Member</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

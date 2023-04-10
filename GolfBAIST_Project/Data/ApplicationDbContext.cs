@@ -27,6 +27,7 @@ namespace GolfBAIST_Project.Data
         public DbSet<MemberApplication> MemberApplications { get; set; }
         public DbSet<MembersInfo> MembersInfos { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Scores> Scores { get; set; }
 
     }
 }

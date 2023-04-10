@@ -238,6 +238,41 @@ namespace GolfBAIST_Project.Migrations
                     b.ToTable("Reservations");
                 });
 
+            modelBuilder.Entity("GolfBAIST_Project.Models.Domain.Scores", b =>
+                {
+                    b.Property<int>("ScoreID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Handicap")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MemberFirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MemberLastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MembersInfoMemberId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PlayDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PlayScore")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ScoreID");
+
+                    b.HasIndex("MembersInfoMemberId");
+
+                    b.ToTable("Scores");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -400,6 +435,15 @@ namespace GolfBAIST_Project.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("GolfBAIST_Project.Models.Domain.Scores", b =>
+                {
+                    b.HasOne("GolfBAIST_Project.Models.Domain.MembersInfo", null)
+                        .WithMany("scores")
+                        .HasForeignKey("MembersInfoMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -459,6 +503,8 @@ namespace GolfBAIST_Project.Migrations
             modelBuilder.Entity("GolfBAIST_Project.Models.Domain.MembersInfo", b =>
                 {
                     b.Navigation("reservations");
+
+                    b.Navigation("scores");
                 });
 #pragma warning restore 612, 618
         }

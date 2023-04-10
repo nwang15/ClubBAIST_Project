@@ -42,7 +42,7 @@ namespace GolfBAIST_Project.Pages.Member
            
             if (MemberApplication==null)
             {
-                message = "You have be a member first";
+                message = "You have to be a member first";
             }
             else
             {

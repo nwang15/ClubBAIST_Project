@@ -17,5 +17,6 @@ namespace GolfBAIST_Project.Models.Domain
         public string MemberLastName { get; set; }
 
         public ICollection<Reservation> reservations { get; set; }
+        public ICollection<Scores> scores { get; set; }
     }
 }

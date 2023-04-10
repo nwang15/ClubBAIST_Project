@@ -1,0 +1,62 @@
+﻿@page
+@model GolfBAIST_Project.Pages.Admin.AdminScoreReportModel
+@{
+}
+
+<form class="form-inline" method="post">
+    <input type="hidden" name="memberId" value="@Model.memberId" asp-for="@Model.memberId" />
+  
+  <div class="form-group mx-sm-3 mb-2">
+        <label for="startDate">Start Date:</label>&nbsp;
+        <input type="date" class="form-control" id="startDate" value="" asp-for="@Model.StartDate">
+  </div>
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="endDate">End Date:</label>&nbsp;
+        <input type="date" class="form-control" id="endDate" value="" asp-for="@Model.EndDate">
+    </div>
+    <button type="submit" class="btn btn-dark mb-2" asp-page-handler="Date">Generate Your Score Report</button>
+</form>
+
+
+<form class="form-inline" method="post">
+    
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="searchMember">Generate Member Score Report By Member ID:</label>&nbsp;
+        <input type="text" class="form-control" id="searchMember" value="" asp-for="@Model.memberId">
+    </div>
+    <button type="submit" class="btn btn-dark mb-2" asp-page-handler="Member">Search</button>
+</form>
+
+
+<p></p>
+<div>
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Member Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Handicap</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.AllScores != null)
+                {
+                    @foreach (var score in Model.AllScores)
+                    {
+                        <tr class="panel-flex">
+                            <td scope="row">@score.MembersInfoMemberId</td>
+                            <td>@score.MemberLastName, @score.MemberFirstName</td>
+                            <td>@score.PlayDate</td>
+                            <td>@score.PlayScore</td>
+                            <td>@score.Handicap</td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

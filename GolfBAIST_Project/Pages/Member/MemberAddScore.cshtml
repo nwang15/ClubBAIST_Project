@@ -1,0 +1,71 @@
+﻿@page
+@model GolfBAIST_Project.Pages.Member.MemberAddScoreModel
+@{
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById("playDate").setAttribute('max', today);
+
+        document.getElementById("calHadicap").disabled = true;
+        var score = document.getElementById("playScore");
+        var hadicapNum = document.getElementById("handicap");
+
+        score.addEventListener('change', function calculateHadicap()
+        {
+            document.getElementById("calHadicap").disabled = false;
+           
+                hadicapNum.value = score.value - 75;
+        })
+    </script>
+}
+
+    <form method="post" name="scoreForm">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="memberId" class="form-label">Member Id</label>
+                <input type="text" class="form-control" id="memberId" value="@Model.memberId" asp-for="AddScoreRequest.MembersInfoMemberId" readonly>
+        </div>
+    </div>
+    <div class="form-row"> 
+        <div class="form-group col-md-4">
+            <label for="memberFN">Member First Name</label>
+                <input type="text" class="form-control" id="memberFN" value="@Model.memberFirstName" asp-for="AddScoreRequest.MemberFirstName" readonly>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="memberLN">Member Last Name</label>
+                <input type="text" class="form-control" id="memberLN" value="@Model.memberLastName" asp-for="AddScoreRequest.MemberLastName" readonly>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="playDate">Play Date</label>
+                <input type="date" class="form-control" id="playDate" asp-for="AddScoreRequest.PlayDate">
+
+        </div>
+    </div>
+        <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="playScore">Score</label>
+                <input type="number" class="form-control" id="playScore" min="75" asp-for="AddScoreRequest.PlayScore">
+            <span style="color:red;font-style:italic">*Score can't less than 75</span>
+            <input type="button" id="calHadicap" onclick="calculateHadicap()" hidden>
+        </div>
+            
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="handicap">Handicap</label>
+                <input type="text" class="form-control" id="handicap" asp-for="AddScoreRequest.Handicap" readonly>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="updatedBy">Updated By</label>
+                <input type="text" class="form-control" id="updatedBy" asp-for="AddScoreRequest.UpdatedBy">
+        </div>
+    </div>
+        <button type="submit" class="btn btn-primary">Submit Score</button>
+</form>

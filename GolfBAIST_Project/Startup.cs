@@ -34,6 +34,7 @@ namespace GolfBAIST_Project
 
             services.AddScoped<IMemberApplicationRepository, MemberApplicationRepository>();
             services.AddScoped<IMemberReservationRepository, MemberReservationRepository>();
+            services.AddScoped<IMemberScoreRepository, MemberScoreRepository>();
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 

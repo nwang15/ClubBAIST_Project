@@ -7,17 +7,36 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
+    @if (User.IsInRole("Admin"))
+    {
 
-<div class="dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Member
-    </a>
-    <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
-        <a class="nav-link text-dark" asp-area="" asp-page="/Member/SubmitApplication">Submit Application</a>
-        <a class="nav-link text-dark" asp-area="" asp-page="/Member/BookReservation">Book Reservation</a>
-        <a class="nav-link text-dark" asp-area="" asp-page="/Member/ReviewApplication">Review Application</a>
-        <a class="nav-link text-dark" asp-area="" asp-page="/Member/ReviewReservation">Review Reservation</a>
-    </div>
-</div>
+    }
+    else
+    {
+
+        <div class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Member
+            </a>
+            <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Member/SubmitApplication">Submit Application</a>
+                <a class="nav-link text-dark" asp-area="" asp-page="/Member/BookReservation">Book Reservation</a>
+                <a class="nav-link text-dark" asp-area="" asp-page="/Member/MemberAddScore">Submit Score</a>
+                <a class="nav-link text-dark" asp-area="" asp-page="/Member/ReviewApplication">Review Application</a>
+                <a class="nav-link text-dark" asp-area="" asp-page="/Member/ReviewReservation">Review Reservation</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Build Report
+            </a>
+            <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Member/MemberViewScore">View Score</a>
+                <a class="nav-link text-dark" asp-area="" asp-page="/Member/MemberReservationReport">View Rservation/Schedule</a>
+            </div>
+        </div>
+    }
+
 
 }
