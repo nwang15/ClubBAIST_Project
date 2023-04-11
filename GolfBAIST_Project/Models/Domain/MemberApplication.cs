@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GolfBAIST_Project.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,6 +13,7 @@ namespace GolfBAIST_Project.Models.Domain
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ApplicationId { get; set; }
+        public string Id { get; set; }
         public string MembershipType { get; set; }
         public string MemberFirstName { get; set; }
         public string MemberLastName { get; set; }
@@ -42,6 +44,8 @@ namespace GolfBAIST_Project.Models.Domain
         //Navigation Property       
         public virtual MembersInfo MembersInfos { get; set; }
 
+        [ForeignKey("Id")]
+        public ApplicationUser ApplicationUser { get; set; }
 
     }
 }

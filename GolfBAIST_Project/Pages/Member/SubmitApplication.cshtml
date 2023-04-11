@@ -1,0 +1,185 @@
+﻿@page
+@model GolfBAIST_Project.Pages.Member.SubmitApplicationModel
+@{
+}
+
+<h1>Submit Application</h1>
+<form method="post">
+    <p>
+        Note: Please don't submit more than one application. We will only review the first one you submitted, and others will be removed from system.
+        If you want update any application information, please contact customer service.'
+    </p>
+    <h2>Personal Information</h2>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="membershipType" class="form-label">Membership Type</label>
+            <select id="membershipType" class="form-control" asp-for="AddApplicationRequest.MembershipType">
+                <option selected>Choose...</option>
+                <option>Bronze</option>
+                <option>Sliver</option>
+                <option>Gold</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control" id="userId" value="@Model.userId" asp-for="AddApplicationRequest.Id" hidden>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="applicationStatus" class="form-label" hidden>Application Status</label>
+            <input type="text" class="form-control" id="applicationStatus" value="Applied" asp-for="AddApplicationRequest.ApplicationStatus" hidden>
+        </div>
+    </div>
+    <p></p>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" asp-for="AddApplicationRequest.MemberFirstName">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" asp-for="AddApplicationRequest.MemberLastName">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="personalAddress" class="form-label">Address</label>
+        <input type="text" class="form-control" id="personalAddress" placeholder="1234 Main St" asp-for="AddApplicationRequest.MemberAddress">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="personalCity" class="form-label">City</label>
+            <input type="text" class="form-control" id="personalCity" asp-for="AddApplicationRequest.MemberCity">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="personalProvince" class="form-label">Province</label>
+            <input type="text" class="form-control" id="personalProvince" asp-for="AddApplicationRequest.MemberProvince">
+
+        </div>
+        <div class="form-group col-md-2">
+            <label for="personalPostalCode" class="form-label">Postal Code</label>
+            <input type="text" class="form-control" id="personalPostalCode" asp-for="AddApplicationRequest.MemberPostalCode">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="dob" class="form-label">Date Of Birth</label>
+            <input type="date" class="form-control" id="dob" asp-for="AddApplicationRequest.MemberDOB">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="phoneNumber" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phoneNumber" asp-for="AddApplicationRequest.MemberPhoneNumber">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" asp-for="AddApplicationRequest.MemberEmail">
+        </div>
+    </div>
+    <p></p>
+    <p>Company Information</p>
+    <div class="form-row">
+        <div class="col-md-6">
+            <label for="form-group companyName" class="form-label">Company Name</label>
+            <input type="text" class="form-control" id="companyName" asp-for="AddApplicationRequest.CompanyName">
+        </div>
+        <div class="col-md-6">
+            <label for="form-group occupation" class="form-label">Occupation</label>
+            <input type="text" class="form-control" id="occupation" asp-for="AddApplicationRequest.Occupation">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-8">
+            <label for="companyAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="companyAddress" placeholder="1234 Main St" asp-for="AddApplicationRequest.CompanyAddress">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="companyCity" class="form-label">City</label>
+            <input type="text" class="form-control" id="companyCity" asp-for="AddApplicationRequest.CompanyCity">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="companyProvince" class="form-label">Province</label>
+            <input type="text" class="form-control" id="companyProvince" asp-for="AddApplicationRequest.CompanyProvince">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="companyPostalCode" class="form-label">Postal Code</label>
+            <input type="text" class="form-control" id="companyPostalCode" asp-for="AddApplicationRequest.CompanyPostalCode">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="companyPhoneNumber" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="companyPhoneNumber" asp-for="AddApplicationRequest.CompanyPhoneNumber">
+        </div>
+    </div>
+    <p></p>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="personalInfoCheck">
+            <label class="form-check-label" for="personalInfoCheck">
+                I hereby apply to become a Shareholder/Associate of Club of BAIST. If Seleted I agree to pay the annual dues and
+                I also agree to become bound by the Memorandum and Articles of Association of Club BAIST, and the rules,
+                regulations and By-laws of the Directors of Club BAIST, and all amendments thereto.
+            </label>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="memberSignature" class="form-label">Member Signature</label>
+            <input type="text" class="form-control" id="memberSignature" asp-for="AddApplicationRequest.MemberSignature">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="memberSignatureDate" class="form-label">Member Sign Date</label>
+            <input type="date" class="form-control" id="memberSignatureDate" asp-for="AddApplicationRequest.MemberSignDate">
+        </div>
+    </div>
+    <p></p>
+    <p>Reference Information</p>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="refCheck">
+            <label class="form-check-label" for="refCheck">
+                The above named applicant is personally known to me, and I believe him/her to be a suitable persion to be slected
+                as a member of Club BAIST.
+            </label>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="firstShareHolderName" class="form-label">First Share Holder Name</label>
+            <input type="text" class="form-control" id="firstShareHolderName" asp-for="AddApplicationRequest.FirstShareholderFullName">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="secondShareHolderName" class="form-label">Second Share Holder Name</label>
+            <input type="text" class="form-control" id="secondShareHolderName" asp-for="AddApplicationRequest.SecondShareholderFullName">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="firstShareHolderDate" class="form-label">Date</label>
+            <input type="date" class="form-control" id="firstShareHolderDate" asp-for="AddApplicationRequest.FirstShareholderSignDate">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="secondShareHolderDate" class="form-label">Date</label>
+            <input type="date" class="form-control" id="secondShareHolderDate" asp-for="AddApplicationRequest.SecondShareholderSignDate">
+        </div>
+    </div>
+        <p></p>
+        <p>PRIVACY INFORMATION</p>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="privacyCheck">
+                <label class="form-check-label" for="privacyCheck">
+                    The information you provide on this document is requested strictly to update our membership data and the
+                    Membership Roster. This information will not be used for any other purpose except with your written permission
+                </label>
+            </div>
+        </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit Application</button>
+            <button type="reset" class="btn btn-secondary">Clear Application</button>
+
+
+
+</form>

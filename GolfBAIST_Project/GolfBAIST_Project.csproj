@@ -6,6 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\ManageReservation\**" />
+    <Content Remove="Pages\ManageReservation\**" />
+    <EmbeddedResource Remove="Pages\ManageReservation\**" />
+    <None Remove="Pages\ManageReservation\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="jQuery-datetimepicker" Version="2.4.5" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.17" />

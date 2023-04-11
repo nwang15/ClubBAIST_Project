@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "lgyh3QWKMzPiBisLtmdqk0CpM8Fn3rMqrmGZBN8hQ9p28EU+ZdFcgqcQQtZnsjMqe9+jbq/mYBvM+6zLOrErAg==",
+  "dgSpecHash": "vrXLHOl/mGH1+p718UCWbYoY1nPx1aIvkVMCpJla2Gs+1KdQmTDLmSdU0LlcuUPXZIxtPbj61a5GCM8KQw+iLg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ACChi\\Documents\\GitHub\\ClubBAIST_Project\\GolfBAIST_Project\\GolfBAIST_Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACChi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\ACChi\\.nuget\\packages\\jquery-datetimepicker\\2.4.5\\jquery-datetimepicker.2.4.5.nupkg.sha512",
     "C:\\Users\\ACChi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.17\\microsoft.aspnetcore.cryptography.internal.5.0.17.nupkg.sha512",
     "C:\\Users\\ACChi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.17\\microsoft.aspnetcore.cryptography.keyderivation.5.0.17.nupkg.sha512",
     "C:\\Users\\ACChi\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\5.0.17\\microsoft.aspnetcore.diagnostics.entityframeworkcore.5.0.17.nupkg.sha512",

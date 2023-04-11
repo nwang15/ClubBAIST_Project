@@ -4,11 +4,25 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-    @if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result,"admin")){
-        <li class="nav-item dropdown show">
-            <a class="dropdown-toggle nav-link text-dark" href="#" data-toggle = "dropdown">Admin Login Test</a>
-        </li>
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+{
 
-           
-    }
+
+    <div class="dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ADMIN
+        </a>
+        <div class="dropdown-menu dropdown-menu-dark " aria-labelledby="dropdownMenuButton">
+            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/ReviewAllApplications">Review All Applications</a>
+            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/ReviewAllReservations">Review All Reservationsn</a>
+            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/GetAllMember">Get All Members</a>
+            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/AdminScoreReport">Score Report</a>
+            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/AdminReservationReport">Reservation Report</a>
+        </div>
+    </div>
+
+
+   
+}
+
 

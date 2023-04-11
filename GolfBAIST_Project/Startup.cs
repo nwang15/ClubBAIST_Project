@@ -33,10 +33,15 @@ namespace GolfBAIST_Project
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IMemberApplicationRepository, MemberApplicationRepository>();
+            services.AddScoped<IMemberReservationRepository, MemberReservationRepository>();
+            services.AddScoped<IMemberScoreRepository, MemberScoreRepository>();
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            //services.AddIdentity<IdentityUser, IdentityRole>();
+
+            services.AddDefaultIdentity<ApplicationUser>(options => 
+            options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();

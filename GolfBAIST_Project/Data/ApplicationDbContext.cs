@@ -5,17 +5,16 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace GolfBAIST_Project.Data
 {   
     public class ApplicationUser:IdentityUser
     {
-        [StringLength(250)]
-        public string FirstName { get; set; }
-        [StringLength(250)]
-        public string LastName { get; set; }
-            
+
+        public string NickName { get; set; }
+
     }
     public class ApplicationDbContext : IdentityDbContext <ApplicationUser>
     {
@@ -28,6 +27,7 @@ namespace GolfBAIST_Project.Data
         public DbSet<MemberApplication> MemberApplications { get; set; }
         public DbSet<MembersInfo> MembersInfos { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Scores> Scores { get; set; }
 
     }
 }

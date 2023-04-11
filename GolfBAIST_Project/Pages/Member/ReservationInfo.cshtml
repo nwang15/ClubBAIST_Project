@@ -1,0 +1,28 @@
+﻿@page "{reservationId:int}"
+@model GolfBAIST_Project.Pages.Member.ReservationInfoModel
+@{
+}
+
+<form method="post">
+
+        <div class="form-group col-md-4">
+            <label for="reservationId" class="form-label">Reservation Id</label>
+            <input type="text" class="form-control" id="reservationId" asp-for="Reservation.ReservationId" readonly>
+        </div>
+        <p></p>
+        <div class="form-group col-md-4">
+            <label for="selectDate" class="form-label">Reservation Date</label>
+            <input type="text" class="form-control" id="selectDate" asp-for="Reservation.reservationDate" readonly>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="selectTime" class="form-label">Reservation Time</label>
+            <input type="text" class="form-control" id="selectTime" asp-for="Reservation.TimeRange" readonly>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="c" class="form-label">Number of Players</label>
+            <input type="text" class="form-control" id="playerNum" asp-for="Reservation.Players" readonly>
+        </div>
+
+
+</form>

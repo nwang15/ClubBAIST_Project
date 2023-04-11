@@ -1,0 +1,49 @@
+﻿@page
+@model GolfBAIST_Project.Pages.Admin.ReviewAllApplicationsModel
+@{
+}
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#search").on("keyup", function () {
+                $('.panel-flex').hide();
+                var searchTerm = $(this).val().toLowerCase();
+                $('.panel-flex').filter(function () {
+                    return $(this).find("td").text().toLowerCase().indexOf(searchTerm) > -1;
+                }).show();
+            });
+        });
+    </script>
+}
+<div>
+    <div>
+        <input class="form-group col-md-6" id="search" type="text" placeholder="Search">
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Application Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Application Status</th>
+                    <th scope="col">View Application</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var application in Model.MemberApplications)
+                {
+                    <tr class="panel-flex">
+                        <td>@application.ApplicationId</td>
+                        <td>@application.MemberLastName, @application.MemberFirstName</td>
+                        <td>@application.ApplicationStatus</td>
+                        <td><a href="/Admin/UpdateMemberApplication/@application.ApplicationId">View</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+   
+</div>

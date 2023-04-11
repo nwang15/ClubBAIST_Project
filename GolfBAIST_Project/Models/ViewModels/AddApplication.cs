@@ -7,6 +7,7 @@ namespace GolfBAIST_Project.Models.ViewModels
 {
     public class AddApplication
     {
+        public string Id { get; set; }
         public string MembershipType { get; set; }
         public string MemberFirstName { get; set; }
         public string MemberLastName { get; set; }

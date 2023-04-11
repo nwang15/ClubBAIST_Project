@@ -1,0 +1,49 @@
+﻿@page
+@model GolfBAIST_Project.Pages.Admin.ReviewAllReservationsModel
+@{
+}
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#search").on("keyup", function () {
+                $('.panel-flex').hide();
+                var searchTerm = $(this).val().toLowerCase();
+                $('.panel-flex').filter(function () {
+                    return $(this).find("td").text().toLowerCase().indexOf(searchTerm) > -1;
+                }).show();
+            });
+        });
+    </script>
+}
+
+<div>
+    <div>
+        <input class="form-group col-md-6" id="search" type="text" placeholder="Search">
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Reservation Id</th>
+                <th scope="col">Reservation Date</th>
+                <th scope="col">Reservation Time</th>
+                <th scope="col">Players</th>
+                <th scope="col">View Resrvation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reservation in Model.Reservations)
+            {
+                <tr class="panel-flex">
+                <td>@reservation.ReservationId</td>
+                <td>@reservation.reservationDate</td>
+                <td>@reservation.TimeRange</td>
+                <td>@reservation.Players</td>
+                <td><a href="/Admin/UpdateMemberReservation/@reservation.ReservationId">View</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

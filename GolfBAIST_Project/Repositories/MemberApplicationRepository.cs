@@ -17,7 +17,7 @@ namespace GolfBAIST_Project.Repositories
             this.applicationDbContext = applicationDbContext;
         }
 
-        //Submit A Application
+        //member submit A Application
         public async Task<MemberApplication> AddAsync(MemberApplication memberApplication)
         {
             await applicationDbContext.MemberApplications.AddAsync(memberApplication);
@@ -25,7 +25,7 @@ namespace GolfBAIST_Project.Repositories
             return memberApplication;
         }
 
-        //Delete A Application
+        //member withdraw A Application
         public async Task<bool> DeleteAsync(int applicationId)
         {
             var existingApplication = await applicationDbContext.MemberApplications.FindAsync(applicationId);
@@ -39,13 +39,13 @@ namespace GolfBAIST_Project.Repositories
             return false;
         }
 
-        //Get All Applications
+        //Admin get All Applications
         public async Task<IEnumerable<MemberApplication>> GetAllAsync()
         {
           return await applicationDbContext.MemberApplications.ToListAsync();    
         }
 
-        //Update Application
+        //Admin update Application
         public async Task<MemberApplication> UpdateAsync(MemberApplication memberApplication)
         {
             var existingApplication = await applicationDbContext.MemberApplications.FindAsync(memberApplication.ApplicationId);
@@ -75,19 +75,20 @@ namespace GolfBAIST_Project.Repositories
                 existingApplication.SecondShareholderFullName = memberApplication.SecondShareholderFullName;
                 existingApplication.FirstShareholderSignDate = memberApplication.FirstShareholderSignDate;
                 existingApplication.SecondShareholderSignDate = memberApplication.SecondShareholderSignDate;
+                existingApplication.ApplicationStatus = memberApplication.ApplicationStatus;
             }
 
             await applicationDbContext.SaveChangesAsync();
             return existingApplication;
         }
 
-        //Get A Application
+        //admin review A Application
         public async Task<MemberApplication> GetAsync(int applicationId)
         {
             return await applicationDbContext.MemberApplications.FindAsync(applicationId);
         }
 
-        //Add Members Info into Member Table
+        //Add Members Info into Member Table when submit application
         public async Task<MembersInfo> AddAsync(MembersInfo membersInfo)
         {
 
@@ -96,14 +97,7 @@ namespace GolfBAIST_Project.Repositories
             return membersInfo;
         }
 
-        public Task<Reservation> AddAsync(Reservation reservation)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<Reservation> GetAReservation(int reservationId)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
