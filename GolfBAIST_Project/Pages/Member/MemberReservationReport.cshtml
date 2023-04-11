@@ -4,7 +4,7 @@
 }
 
 
-@Model.memberId
+
 <form class="form-inline" method="post">
     <input type="hidden" name="memberId" value="@Model.memberId" asp-for="@Model.memberId" />
 
@@ -37,7 +37,7 @@
                     {
                         <tr class="panel-flex">
                             <td>@reservation.MembersInfoMemberId</td>
-                            <td>@Model.lastName@Model.firstName </td>
+                            <td>@Model.lastName, @Model.firstName </td>
                             <td>@reservation.reservationDate</td>
                         </tr>
                     }
